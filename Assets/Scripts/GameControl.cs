@@ -64,7 +64,7 @@ public class GameControl : MonoBehaviour {
             if (GUI.Button(new Rect(0, 180, buttonWidth, buttonHeight), "Quit Game")) //Makes a button for quiting the game
             {
                 paused = false;
-                SceneManager.LoadScene("Start Menu");
+                //SceneManager.LoadScene("Start Menu");
                 Application.Quit();
             }
             GUI.EndGroup();
