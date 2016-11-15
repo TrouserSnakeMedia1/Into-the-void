@@ -108,7 +108,8 @@ public class enemyscript : MonoBehaviour {
         latched = true;
 		nav.speed = 0;
 		transform.parent = enemyLatchPoint.transform;		// parented to the player... this takes away the need for the enemy to try and keep up with the player... it is a more  CPU friendly way
-		transform.position = enemyLatchPoint.position;
+        //transform.LookAt(target);
+        transform.position = enemyLatchPoint.position;
 		rb.isKinematic = true; 						// sets the rigidbody to 'animation mode'
 		nav.speed = 0f;								// enemy is already moving with the player so he does not need a speed of his own.. 
 	}
