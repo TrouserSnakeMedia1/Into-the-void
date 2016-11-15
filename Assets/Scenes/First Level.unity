@@ -4619,7 +4619,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011754512172, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4281.4
+      value: 4302.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000011754512172, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4627,7 +4627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011754512172, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -59.346153
+      value: -50.99
       objectReference: {fileID: 0}
     - target: {fileID: 4000011754512172, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4652,7 +4652,37 @@ Prefab:
     - target: {fileID: 114000012655439352, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
         type: 2}
       propertyPath: attackDistance
-      value: 7
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195000013444225504, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195000013444225504, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012655439352, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: delayBetweenAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012655439352, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: idleAnimationCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135000011299468428, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000010265245328, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000012179623166, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
@@ -10334,7 +10364,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012425447088, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4320.1
+      value: 4302.6
       objectReference: {fileID: 0}
     - target: {fileID: 4000012425447088, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10342,7 +10372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012425447088, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -71.5
+      value: -59.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012425447088, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
       propertyPath: m_LocalRotation.x

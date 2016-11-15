@@ -69,11 +69,12 @@ public class FeederEnemy : MonoBehaviour {
 		yield return new WaitForSeconds (delayInChase);
 		state = FeederEnemy.State.CHASE;
 	}
-	IEnumerator Attack(){	// the attack will have an animation to handle most of it.
-		if (stunned.stunFeeder == false) {
-            walkAnimationCheck = false;
-            idleAnimationCheck = false;
-            attackAnimationCheck = true;
+	IEnumerator Attack(){   // the attack will have an animation to handle most of it.
+        walkAnimationCheck = false;
+        idleAnimationCheck = false;
+        attackAnimationCheck = true;
+        if (stunned.stunFeeder == false) {
+          
 
            // print ("attacking");	// right now there is only a print happening
 			yield return new WaitForSeconds (delayBetweenAttack);
@@ -82,11 +83,12 @@ public class FeederEnemy : MonoBehaviour {
 		}								// I will be putting in another raycast and if frank is within that range, then frank will take damage... The attack range should be slightly farther than the attack distance
 
 	}
-	void Patrol(){		// the feeder enemy will only have the feeding animation playing during its "patrol"
-		if (stunned.stunFeeder == false) {
-            walkAnimationCheck = false;
-            idleAnimationCheck = true;
-            attackAnimationCheck = false;
+	void Patrol(){      // the feeder enemy will only have the feeding animation playing during its "patrol"
+        walkAnimationCheck = false;
+        idleAnimationCheck = true;
+        attackAnimationCheck = false;
+        if (stunned.stunFeeder == false) {
+          
            // print ("Patrol");	// when there is placement of the dead enegineer then we will set the feeder to look at that object
 			nav.speed = patrolSpeed;// but for now, the feeder enemy is just sitting there
 		} else if(runOnce == false && stunned.stunFeeder == true){
@@ -94,11 +96,12 @@ public class FeederEnemy : MonoBehaviour {
 		}
 	}
 	void Chase(){// the chase is on!
-		if (stunned.stunFeeder == false) {
+        walkAnimationCheck = true;
+        idleAnimationCheck = false;
+        attackAnimationCheck = false;
+        if (stunned.stunFeeder == false) {
 			//print ("chase");
-            walkAnimationCheck = true;
-            idleAnimationCheck = true;
-            attackAnimationCheck = false;
+         
             RaycastHit hit;		// gonna be using a raycast soon....
 			nav.speed = chaseSpeed;// setting the speed
 			nav.destination = player.transform.position; // the nav dest is the specified player position
@@ -118,6 +121,7 @@ public class FeederEnemy : MonoBehaviour {
 	void OnTriggerStay(Collider other){// if the enemy is chasing|| attacking and frank is still in the collider area, then player is still the collider game object
 		if (other.tag == "Player") {
 			player = other.gameObject;
+            state = FeederEnemy.State.CHASE;
 		}
 	}
 	void OnTriggerExit(Collider other){ // in chris' doc, he says that the feeder enemy should stop pursuit if frank leaves the range or breaks LOS... This function does jsut that... But since the feeder enemy does not have eyes.. The LOS is not really a thing... Instead it is a hearing area and that is why the sphere collider suffices and we do not need to worry about if the player is actually in a cone of view in front of the feeder enemy
