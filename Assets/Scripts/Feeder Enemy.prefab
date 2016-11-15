@@ -253,7 +253,7 @@ MonoBehaviour:
   chaseSpeed: 5
   delayInChase: 1
   patrolSpeed: 0
-  attackDistance: 0.5
+  attackDistance: 7
   delayBetweenAttack: 1
   stunDuration: 3
   player: {fileID: 0}
