@@ -10,7 +10,6 @@ public class GameControl : MonoBehaviour {
    
     public float Health;
     public GameObject Player;
-
     private int buttonWidth = 200; //How wide the button is
     private int buttonHeight = 50; //how tall the button is
     private int groupWidth = 200; //how wide the group is
@@ -20,13 +19,24 @@ public class GameControl : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        bool loadthegame = GameObject.FindGameObjectWithTag("SceneHandler").GetComponent<SceneHandler>().Loadup; //calls the loadup script from the scenehandler
         Time.timeScale = 1; //game is not frozen at the start
+
+        if(loadthegame == true)
+        {
+            //SceneManager.LoadScene(1);
+            Load();//if the player picked load from the start, it will load the game
+        }
+        else if(loadthegame == false)
+        {
+
+        }
     }
 
     void Awake ()
     {
 
-        if (control == null)
+        /*if (control == null)
         {
             DontDestroyOnLoad(gameObject);
             control = this;
@@ -34,7 +44,7 @@ public class GameControl : MonoBehaviour {
         else if(control != this)
         {
             Destroy(gameObject);
-        }
+        }*/
 	}
 
     void OnGUI()

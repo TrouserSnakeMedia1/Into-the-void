@@ -24,6 +24,7 @@ TagManager:
   - FeederEnemy
   - FeederSprite
   - WaterPatch
+  - SceneHandler
   layers:
   - Default
   - TransparentFX

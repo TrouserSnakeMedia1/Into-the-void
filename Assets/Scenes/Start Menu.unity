@@ -371,7 +371,7 @@ GameObject:
   - 114: {fileID: 763510600}
   m_Layer: 0
   m_Name: SceneHandler
-  m_TagString: Untagged
+  m_TagString: SceneHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
