@@ -121,7 +121,7 @@ public class FeederEnemy : MonoBehaviour {
 	void OnTriggerStay(Collider other){// if the enemy is chasing|| attacking and frank is still in the collider area, then player is still the collider game object
 		if (other.tag == "Player") {
 			player = other.gameObject;
-            state = FeederEnemy.State.CHASE;
+           // state = FeederEnemy.State.CHASE;
 		}
 	}
 	void OnTriggerExit(Collider other){ // in chris' doc, he says that the feeder enemy should stop pursuit if frank leaves the range or breaks LOS... This function does jsut that... But since the feeder enemy does not have eyes.. The LOS is not really a thing... Instead it is a hearing area and that is why the sphere collider suffices and we do not need to worry about if the player is actually in a cone of view in front of the feeder enemy
