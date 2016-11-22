@@ -20,8 +20,9 @@ public class ConsoleMenuScript : MonoBehaviour
     // Use this for initialization
     void Start(){
         audio = GetComponent<AudioSource>();
-        playerInput = GameObject.Find("terminal");
-        playerInput.GetComponent < Text >() = (letterCodeEntry && numberCodeEntry);
+        playerInput = GameObject.Find("Terminal");
+        playerInput.GetComponent<Text>(); //sets the input from the player to a text component
+        playerInput = (letterCodeEntry && numberCodeEntry);
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class ConsoleMenuScript : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (playerInput != letterCodeEntry && numberCodeEntry)
+        if (playerInput != (letterCodeEntry && numberCodeEntry))
         {
 
         }
@@ -46,7 +47,7 @@ public class ConsoleMenuScript : MonoBehaviour
     void VoluntaryTriggerExit(Collider other){
         if (other.tag == "Terminal")
         {
-
+            terminalProximity = false;  // Player exits the terminal voluntarily. 
         }
     }
 
