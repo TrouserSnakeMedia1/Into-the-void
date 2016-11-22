@@ -24,6 +24,8 @@ TagManager:
   - FeederEnemy
   - FeederSprite
   - WaterPatch
+  - SlimeEnemy
+  - SlimeSprite
   layers:
   - Default
   - TransparentFX

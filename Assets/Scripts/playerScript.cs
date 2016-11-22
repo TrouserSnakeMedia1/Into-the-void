@@ -3,15 +3,15 @@ using System.Collections;
 
 public class playerScript : MonoBehaviour {
 
-	//private Rigidbody rigidPlayer;
-	//public float speed = 5f;
+    //private Rigidbody rigidPlayer;
+    //public float speed = 5f;
 
-	[SerializeField]
-	private float playerSpeed;
+    [SerializeField]
+    private float playerSpeed;
 
     public KeyCode runKey;
 
-	private bool playerFacingRight;
+    private bool playerFacingRight;
     public float speed; // speed of the player gameobject
     public float timeBetween;// time between damage... you are passing this into the take damage ienumerator
     public float enemyDamage;// amount of damage enemy is giving
@@ -24,9 +24,10 @@ public class playerScript : MonoBehaviour {
 
     public GameObject checkpoint; // checkpoint that frank respawns at
     private enemyscript ES;
+    private slimescript SS;
     public bool takeDamage;
     public bool dead;
-    bool justBeenHit=false;
+    bool justBeenHit = false;
 
     private Quaternion targetRotation;
 
@@ -35,18 +36,21 @@ public class playerScript : MonoBehaviour {
     Vector3 input;
 
     // Use this for initialization
-    void Start (){
+    void Start()
+    {
         controller = GetComponent<CharacterController>();
-		playerFacingRight = true;
+        playerFacingRight = true;
         health = 5; // displays in the inspector but has to be changed in script.
         maxHealth = 5;
         takeDamage = false;
         dead = false;
-       // rigidPlayer = GetComponent<Rigidbody>();
-         ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
+        // rigidPlayer = GetComponent<Rigidbody>();
+        ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
+        SS = GameObject.FindGameObjectWithTag("SlimeEnemy").GetComponent<slimescript>();// referencing the slimescript which holds the latched bool.
     }
-	// Update is called once per frame
-	void FixedUpdate (){
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 
 
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -73,14 +77,20 @@ public class playerScript : MonoBehaviour {
 
 
 
-        if (ES.latched && takeDamage == false) // if the enemy is latched and the player is not already taking damage, the corroutine will start
+        if (ES.latched && takeDamage == false /*|| SS.latched && takeDamage == false*/) // if the enemy is latched and the player is not already taking damage, the corroutine will start
             StartCoroutine(TakeDamage(timeBetween, enemyDamage));
-        else if (!ES.latched)
+        else if (!ES.latched /*|| !SS.latched*/)
             takeDamage = false;
         if (health <= 0 && dead == false)
             transform.position = checkpoint.transform.position; // where frank will respawn. 
+        if (/*ES.latched && takeDamage == false  ||*/ SS.latched && takeDamage == false) // if the enemy is latched and the player is not already taking damage, the corroutine will start
+            StartCoroutine(TakeDamage(timeBetween, enemyDamage));
+        else if (/*!ES.latched ||*/ !SS.latched)
+            takeDamage = false;
+        if (health <= 0 && dead == false)
+            transform.position = checkpoint.transform.position; // where frank will respawn.
     }
-    
+
     //private void HandleMovement(float horizontal)
     //{
     //    Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -112,9 +122,16 @@ public class playerScript : MonoBehaviour {
     //        transform.localScale = theScale;
     //    }
     //}
-    IEnumerator TakeDamage(float timeBetweenDamage, float damage){
+    IEnumerator TakeDamage(float timeBetweenDamage, float damage)
+    {
         takeDamage = true;
-        while (health >= 0 && ES.latched){           // will the player's health is above or equal to 0, the coroutine will run
+        while (health >= 0 && ES.latched || health >= 0 && SS.latched)// will the player's health is above or equal to 0, the coroutine will run
+        {
+            health -= damage;// takes damage and then waits X amount of seconds before taking damage again. 
+            yield return new WaitForSeconds(timeBetweenDamage);
+        }
+        while (/*health >= 0 && ES.latched ||*/ health >= 0 && SS.latched)// will the player's health is above or equal to 0, the coroutine will run
+        {
             health -= damage;// takes damage and then waits X amount of seconds before taking damage again. 
             yield return new WaitForSeconds(timeBetweenDamage);
         }
@@ -132,8 +149,8 @@ public class playerScript : MonoBehaviour {
         speed -= 2; //decreases the speed of the player on contact
         justBeenHit = true;
         print("Character Cant be Hit");
-        //print("Character Can Now be Hit!!!");
-        //justBeenHit = false;
+        print("Character Can Now be Hit!!!");
+        justBeenHit = false;
         yield return new WaitForSeconds(3.0f); //keeps the speed for 3 seconds
         speed +=2; //increases the speed of the player back to normal-Peter Gartzke
         justBeenHit = false; // resets so if the player hasn't learned they can once again fall into the hazard again- Peter Gartzke
