@@ -51,11 +51,14 @@ public class slimescript : MonoBehaviour {
     }
     void PlayerDead()
     {// ignore the player dead function... clunky and not called
+       
         slime.transform.parent = null;
         slime.transform.position = slime.transform.position;
-       latched = false;
+       
         
         playerSprite.GetComponent<SpriteRenderer>().enabled = false;
+        latched = false;
+       
         StartCoroutine(PlayerSpawn());
 
     }
