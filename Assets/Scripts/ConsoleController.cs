@@ -55,19 +55,14 @@ public class ConsoleController
 
     public ConsoleController()
     {
-        //When adding commands, you must add a call below to registerCommand() with its name, implementation method, and help text.
-        //registerCommand("babble", babble, "Example command that demonstrates how to parse arguments. babble [word] [# of times to repeat]");
-        //registerCommand("echo", echo, "echoes arguments back as array (for testing argument parser)");
         registerCommand("help", help, "Print this help.");
-        //registerCommand("hide", hide, "Hide the console.");
         registerCommand(repeatCmdName, repeatCommand, "Repeat last command.");
         registerCommand("log1", Log1, "View log #1");
         registerCommand("log2", Log2, "View log #2");
         registerCommand("log3", Log3, "View log #3");
         registerCommand("log4", Log4, "View log #4");
         registerCommand("log5", Log5, "View log #5");
-        //registerCommand("reload", reload, "Reload game.");
-        //registerCommand("resetprefs", resetPrefs, "Reset & saves PlayerPrefs.");
+
     }
 
     void registerCommand(string command, CommandHandler handler, string help)
@@ -116,10 +111,12 @@ public class ConsoleController
 
     public void runCommand(string command, string[] args)
     {
+        
         CommandRegistration reg = null;
         if (!commands.TryGetValue(command, out reg))
         {
             appendLogLine(string.Format("Unknown command '{0}', type 'help' for list.", command));
+            GameObject.FindGameObjectWithTag("Terminal2").GetComponent<AudioSource>().Play();
         }
         else
         {
@@ -165,46 +162,6 @@ public class ConsoleController
     /// A test command to demonstrate argument checking/parsing.
     /// Will repeat the given word a specified number of times.
     /// </summary>
-    /*void babble(string[] args)
-    {
-        if (args.Length < 2)
-        {
-            appendLogLine("Expected 2 arguments.");
-            return;
-        }
-        string text = args[0];
-        if (string.IsNullOrEmpty(text))
-        {
-            appendLogLine("Expected arg1 to be text.");
-        }
-        else
-        {
-            int repeat = 0;
-            if (!Int32.TryParse(args[1], out repeat))
-            {
-                appendLogLine("Expected an integer for arg2.");
-            }
-            else
-            {
-                for (int i = 0; i < repeat; ++i)
-                {
-                    appendLogLine(string.Format("{0} {1}", text, i));
-                }
-            }
-        }
-    }*/
-
-    /*void echo(string[] args)
-    {
-        StringBuilder sb = new StringBuilder();
-        foreach (string arg in args)
-        {
-            sb.AppendFormat("{0},", arg);
-        }
-        sb.Remove(sb.Length - 1, 1);
-        appendLogLine(sb.ToString());
-    }*/
-    //public string LogEntry1;
 
     void Log1(string[] args)
     {
@@ -240,14 +197,6 @@ public class ConsoleController
         }
     }
 
-    /*void hide(string[] args)
-    {
-        if (visibilityChanged != null)
-        {
-            visibilityChanged(false);
-        }
-    }*/
-
     void repeatCommand(string[] args)
     {
         for (int cmdIdx = commandHistory.Count - 1; cmdIdx >= 0; --cmdIdx)
@@ -261,17 +210,5 @@ public class ConsoleController
             break;
         }
     }
-
-    /*void reload(string[] args)
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
-
-    void resetPrefs(string[] args)
-    {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-    }*/
-
     #endregion
 }
