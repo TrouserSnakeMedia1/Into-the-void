@@ -27,6 +27,8 @@ TagManager:
   - SlimeSprite
   - SlimeEnemy
   - Terminal2
+  - ChaseStart
+  - ChaseEnd
   layers:
   - Default
   - TransparentFX

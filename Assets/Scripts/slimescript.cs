@@ -22,7 +22,7 @@ public class slimescript : MonoBehaviour {
         nav = GetComponent<NavMeshAgent>(); //referencing the nav mesh
         //nav.speed = chargeSpeed; 
         latched = false; //not currently attacking the player
-        chargeSpeed = 1.5f; //defult speed
+        //chargeSpeed = 2f; //defult speed
         attackDistance = 1f; //defult distance to when damage starts to take place
 	}
 	

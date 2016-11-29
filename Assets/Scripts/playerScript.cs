@@ -124,8 +124,17 @@ public class playerScript : MonoBehaviour {
         if (other.gameObject.tag == "WaterPatch" && justBeenHit == false) //when the player collides with the patch of water. 
         {
             StartCoroutine(CollisionCooldown()); //calls the iEnumerator
+            //speed -= 2;//decreases the speed of the player on contact
         }
     }
+    /*void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "WaterPatch") //when the player collides with the patch of water. 
+        {
+            //StartCoroutine(CollisionCooldown()); //calls the iEnumerator
+            speed += 2;//increases the speed of the player back to normal-Peter Gartzke
+        }
+    }*/
 
     IEnumerator CollisionCooldown()
     {
