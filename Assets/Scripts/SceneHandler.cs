@@ -23,7 +23,7 @@ public class SceneHandler : MonoBehaviour {
 
     public void Quit() //When you press Quit, this quits Unity.
     {
-        SceneManager.LoadScene("Start Menu");
+      
         Application.Quit();
     }
 
