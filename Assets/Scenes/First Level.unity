@@ -9184,6 +9184,7 @@ GameObject:
   - 4: {fileID: 2145894568}
   - 65: {fileID: 2145894570}
   - 212: {fileID: 2145894569}
+  - 114: {fileID: 2145894571}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -9249,3 +9250,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8479548, y: 0.6140607, z: 0.36998832}
   m_Center: {x: 0.003741831, y: -0.0027164659, z: -0.05588188}
+--- !u!114 &2145894571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145894567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca73899c50975e4db9384f1d7e38849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 425954209}
