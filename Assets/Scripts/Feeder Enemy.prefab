@@ -266,7 +266,7 @@ MonoBehaviour:
   chaseSpeed: 5
   delayInChase: 1
   patrolSpeed: 0
-  attackDistance: 7
+  attackDistance: 8
   delayBetweenAttack: 1
   stunDuration: 3
   player: {fileID: 0}
@@ -284,7 +284,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195000013444225504
 NavMeshAgent:
