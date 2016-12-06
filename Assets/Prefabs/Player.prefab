@@ -128,6 +128,8 @@ GameObject:
   - 114: {fileID: 114000013712101612}
   - 114: {fileID: 114000012477277238}
   - 82: {fileID: 82000012877796894}
+  - 114: {fileID: 114000010366876172}
+  - 114: {fileID: 114000010016340410}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -170,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013376773498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4408.5, y: -8364.3, z: -38.5}
+  m_LocalPosition: {x: 4287.87, y: -8364.3, z: -88.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -185,10 +187,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012135677686}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.19330822, y: 1.2069986, z: -0.076380484}
+  m_LocalRotation: {x: 0.649448, y: 0, z: 0, w: 0.760406}
+  m_LocalPosition: {x: 0.19335938, y: 1.2070007, z: -0.86718774}
   m_LocalScale: {x: 0.9655981, y: 0.9655989, z: 0.9655989}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 81, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011902993098}
   m_RootOrder: 1
@@ -529,7 +531,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 5.21
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -587,6 +589,18 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000010016340410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013376773498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01176bc57eed14348b7ea3f420209a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slime: {fileID: 0}
 --- !u!114 &114000010136816614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,6 +614,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impact: {fileID: 8300000, guid: b37d9a9c9fdc4d6449dc4cf9900e3c71, type: 3}
   toggleFlashlightKey: 102
+--- !u!114 &114000010366876172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013376773498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5026e29b7c9074799432e1bda30f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inProximity: 0
+  terminal1: 0
+  terminal2: 0
+  terminal3: 0
+  terminal4: 0
+  terminal5: 0
+  terminal6: 0
 --- !u!114 &114000010870275764
 MonoBehaviour:
   m_ObjectHideFlags: 1

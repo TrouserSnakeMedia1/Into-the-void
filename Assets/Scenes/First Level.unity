@@ -3422,10 +3422,10 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 726170908}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.19330822, y: 1.2069986, z: -0.076380484}
+  m_LocalRotation: {x: 0.649448, y: 0, z: 0, w: 0.760406}
+  m_LocalPosition: {x: 0.19335938, y: 1.2070007, z: -0.86718774}
   m_LocalScale: {x: 0.9655981, y: 0.9655989, z: 0.9655989}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 81, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1471912621}
   m_RootOrder: 1
@@ -3440,7 +3440,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 5.21
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6425,7 +6425,8 @@ MonoBehaviour:
 --- !u!114 &1396360132
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000010366876172, guid: 403a4769ce86e47b6aea3ce7f9f28e2d,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_Enabled: 1
@@ -6443,7 +6444,8 @@ MonoBehaviour:
 --- !u!114 &1396360133
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000010016340410, guid: 403a4769ce86e47b6aea3ce7f9f28e2d,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_Enabled: 1
