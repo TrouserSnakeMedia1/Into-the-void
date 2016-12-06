@@ -49,19 +49,19 @@ public class GameControl : MonoBehaviour {
                 paused = false;
                 SceneManager.LoadScene(0);
             }
-            if (GUI.Button(new Rect(0, 60, buttonWidth, buttonHeight), "Save Game")) //Makes a button for saving
-            {
-                paused = false; //un-pauses the game
-                Time.timeScale = 1; //un-freezes the game
-                Save(); //calls upon the game control script
-            }
-            if (GUI.Button(new Rect(0, 120, buttonWidth, buttonHeight), "Load Game")) //Makes a button for loading the game
-            {
-                paused = false; //un-pauses the game
-                Time.timeScale = 1; //un-freezes the game
-                Load(); //calls upon the game control script
-            }
-            if (GUI.Button(new Rect(0, 180, buttonWidth, buttonHeight), "Quit Game")) //Makes a button for quiting the game
+            //if (GUI.Button(new Rect(0, 60, buttonWidth, buttonHeight), "Save Game")) //Makes a button for saving
+            //{
+            //    paused = false; //un-pauses the game
+            //    Time.timeScale = 1; //un-freezes the game
+            //    Save(); //calls upon the game control script
+            //}
+            //if (GUI.Button(new Rect(0, 120, buttonWidth, buttonHeight), "Load Game")) //Makes a button for loading the game
+            //{
+            //    paused = false; //un-pauses the game
+            //    Time.timeScale = 1; //un-freezes the game
+            //    Load(); //calls upon the game control script
+            //}
+            if (GUI.Button(new Rect(0, 60, buttonWidth, buttonHeight), "Quit Game")) //Makes a button for quiting the game
             {
                 paused = false;
                 SceneManager.LoadScene("Start Menu");
