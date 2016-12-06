@@ -62,7 +62,7 @@ public class ConsoleController
         registerCommand("log3", Log3, "View log #3");
         registerCommand("log4", Log4, "View log #4");
         registerCommand("log5", Log5, "View log #5");
-
+        registerCommand("unlockdoor", SequenceCode, "Unlock the Door");
     }
 
     void registerCommand(string command, CommandHandler handler, string help)
@@ -157,7 +157,7 @@ public class ConsoleController
 
     #region Command handlers
     //Implement new commands in this region of the file.
-
+    public GameObject Door;
     /// <summary>
     /// A test command to demonstrate argument checking/parsing.
     /// Will repeat the given word a specified number of times.
@@ -223,6 +223,18 @@ public class ConsoleController
         {
             appendLogLine("Does not work");
         }
+    }
+    void SequenceCode(string[] args)
+    {
+        appendLogLine("Please enter access code for door");
+        registerCommand("0000", UnlockDoor, "Unlocks the door");
+    }
+    public void UnlockDoor(string[] args)
+    {
+        Door = GameObject.FindGameObjectWithTag("Door");
+        Door.GetComponent<AudioSource>().enabled = true;
+        Door.SetActive(false);
+        appendLogLine("Door is open");
     }
     void help(string[] args)
     {
