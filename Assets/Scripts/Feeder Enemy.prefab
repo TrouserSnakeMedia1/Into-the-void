@@ -44,6 +44,7 @@ GameObject:
   - 65: {fileID: 65000013466487786}
   - 114: {fileID: 114000012179623166}
   - 95: {fileID: 95000012608038176}
+  - 114: {fileID: 114000011457561818}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: FeederSprite
@@ -88,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010443692728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4360.18, y: -8363.38, z: -59.346153}
+  m_LocalPosition: {x: 4292.81, y: -8363.62, z: -82.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -227,6 +228,18 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000011457561818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011629510364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85dd539587ced1489e44ac4224f6313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95000012608038176}
 --- !u!114 &114000012179623166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,10 +266,13 @@ MonoBehaviour:
   chaseSpeed: 5
   delayInChase: 1
   patrolSpeed: 0
-  attackDistance: 0.5
+  attackDistance: 7
   delayBetweenAttack: 1
   stunDuration: 3
   player: {fileID: 0}
+  walkAnimationCheck: 0
+  idleAnimationCheck: 0
+  attackAnimationCheck: 0
   runOnce: 0
 --- !u!135 &135000011299468428
 SphereCollider:
@@ -268,7 +284,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195000013444225504
 NavMeshAgent:
@@ -284,7 +300,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
