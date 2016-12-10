@@ -3384,6 +3384,10 @@ Prefab:
       propertyPath: m_Name
       value: Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
   m_IsPrefabParent: 0
@@ -8448,7 +8452,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4273.85, y: -8364.3, z: -46.39}
+  m_LocalPosition: {x: 4314.38, y: -8364.3, z: -70.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -10053,6 +10057,10 @@ Prefab:
     - target: {fileID: 4000011000191816, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
       propertyPath: m_LocalScale.x
       value: 1.0806282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
+      propertyPath: m_TagString
+      value: MainTerminalDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
@@ -12538,9 +12546,29 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 14.94
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013067429466, guid: 3b4bf0951f3d8534e857d9933539b266, type: 2}
+      propertyPath: m_TagString
+      value: KeyCard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b4bf0951f3d8534e857d9933539b266, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1950217305 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000014118479918, guid: 3b4bf0951f3d8534e857d9933539b266,
+    type: 2}
+  m_PrefabInternal: {fileID: 1950217304}
+--- !u!114 &1950217306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1950217305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2036fb1414dbf144184aad88047d7e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1951844479
 Prefab:
   m_ObjectHideFlags: 0
