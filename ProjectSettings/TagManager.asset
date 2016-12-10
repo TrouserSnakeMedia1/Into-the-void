@@ -34,6 +34,8 @@ TagManager:
   - Terminal#3
   - Terminal#4
   - Terminal#5
+  - StartBank
+  - EndBank
   layers:
   - Default
   - TransparentFX
