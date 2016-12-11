@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000010199541632}
   - 212: {fileID: 212000013482892738}
   - 95: {fileID: 95000011828286894}
+  - 114: {fileID: 114000010921640720}
   m_Layer: 0
   m_Name: Slime Model
   m_TagString: SlimeSprite
@@ -40,6 +41,7 @@ GameObject:
   - 114: {fileID: 114000012174738620}
   - 195: {fileID: 195000012232407004}
   - 82: {fileID: 82000011134423866}
+  - 114: {fileID: 114000011705694288}
   m_Layer: 0
   m_Name: Slime
   m_TagString: SlimeEnemy
@@ -95,9 +97,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 39e7b65ceeee5614e975d93bb3e31bd0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2f9d5ac5f284a2b469bcbc17ce93f1fe, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.498
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -177,6 +179,31 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010921640720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012574836692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c521630fc9394a458b5a051e80e3f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95000011828286894}
+--- !u!114 &114000011705694288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013163464914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e010d8b4752c1488239225f0ef0772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1000013376773498, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
+  cameraOffset: {x: 0, y: 10, z: 0}
 --- !u!114 &114000012174738620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,6 +222,8 @@ MonoBehaviour:
   attackDistance: 0
   latched: 0
   timeBetweenPlayerSpawn: 0
+  anim: {fileID: 0}
+  beginChase: 0
 --- !u!195 &195000012232407004
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -2475,6 +2475,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000013163464914, guid: 133ba1365120130418bb83b79dc2d219,
     type: 2}
   m_PrefabInternal: {fileID: 337364107}
+--- !u!4 &337364109 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000012560993390, guid: 133ba1365120130418bb83b79dc2d219,
+    type: 2}
+  m_PrefabInternal: {fileID: 337364107}
 --- !u!1 &340063892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3439,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27977fbe95365e3419fa6542977971e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &439411548 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95000011828286894, guid: 133ba1365120130418bb83b79dc2d219,
+    type: 2}
+  m_PrefabInternal: {fileID: 337364107}
 --- !u!4 &441243864 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011000191816, guid: b8d65360c255d364a95ecb69cd7d3e7e,
@@ -7411,6 +7421,14 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -307
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013917098832, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012440852572, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
   m_IsPrefabParent: 0
@@ -8448,7 +8466,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4273.85, y: -8364.3, z: -46.39}
+  m_LocalPosition: {x: 4340.64, y: -8364.3, z: -54.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -8849,7 +8867,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01176bc57eed14348b7ea3f420209a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1396360124}
+  cameraOffset: {x: 0, y: 10, z: 0}
   Slime: {fileID: 337364108}
+  theSlime: {fileID: 337364109}
+  anim: {fileID: 439411548}
+  cameraSwitch: 0
+  slimeSpawn: 0
 --- !u!1001 &1418251245
 Prefab:
   m_ObjectHideFlags: 0
@@ -10112,9 +10136,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b8998cc9fac914c7d8635bcf47ec937c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 897d9b9ec6598a54abb2ef5891c8210b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.637
+  m_Volume: 0.779
   m_Pitch: 1
   Loop: 1
   Mute: 0
