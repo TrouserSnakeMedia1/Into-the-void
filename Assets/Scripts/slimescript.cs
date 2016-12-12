@@ -33,7 +33,7 @@ public class slimescript : MonoBehaviour {
         //nav.speed = chargeSpeed; 
         latched = false; //not currently attacking the player
         //chargeSpeed = 2f; //defult speed
-        attackDistance = 1f; //defult distance to when damage starts to take place
+        attackDistance = 2f; //defult distance to when damage starts to take place
         StartCoroutine(SlimeCutScene());
     }
 	
