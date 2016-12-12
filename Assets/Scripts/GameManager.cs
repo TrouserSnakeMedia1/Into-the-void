@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	public Transform playerSpawn;	// the player spawn point... We become an array
+	public Transform playerSpawn;	// the player spawn point
 	public Transform[] spawnPoints;	// the enemy's spawn points
 	public int maxSpawns;		// the max amount of spawns the enemy has
 	public int currentSpawn;	// current spawn point number that the enemy will spawn at 
@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
 	public float flickrRespawnTime; // time between flickr's respawn
 	public float flickrTimeAlive;	// will be used to keep track of how long flickr is alive
 	public float timeBetweenPlayerSpawn;// will be used for the delay between player respawn
-	 
+    [SerializeField]
+    GameObject player;
 	GameObject flickr;		// the flickr game object
 	GameObject flickrSprite;	// the flickr sprite
 	GameObject playerSprite;	// the player sprite
@@ -43,11 +44,13 @@ public class GameManager : MonoBehaviour {
 		if(ES.enemyDead == true)		// if the enemy is dead then respawn him
 			SpawingEnemy ();		// this ienumartor needs to be further developed to actually keep track of how long the enemy is alive and if flickr sees frank, do no de spawn... This is were the logic was getting loopy and jumpy for me... So I need to come back to actually setting this up. This will be addressed in the later versions of this script
 	}
-	void PlayerDead(){// ignore the player dead function... clunky and not called
+	void PlayerDead(){
 		flickr.transform.parent = null;
 		flickr.transform.position = flickr.transform.position;
 		ES.latched = false;
 		ES.seePlayer = false;
+        player.SetActive(false);
+        player.transform.position = playerSpawn.transform.position;
 		playerSprite.GetComponent<SpriteRenderer>().enabled = false;
 		PS.takeDamage = false;
 		StartCoroutine (PlayerSpawn ());
@@ -78,14 +81,7 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds (timeBetweenPlayerSpawn);
 		PS.gameObject.transform.position = playerSpawn.transform.position;
 		playerSprite.GetComponent<SpriteRenderer>().enabled = true;
+        player.SetActive(true);
 		PS.dead = false;
 	}
 }
-
-
-
-/*Now that I have learned the basics of enumartions, I will be using them in the level manager script. 
- * This will help with the state control of frank being alive or not and the enemies patrol/ spawning
- * I will be revising this script during our current sprint. 
- * This current game manager will control the flickr spawning and respawning.
- * */
