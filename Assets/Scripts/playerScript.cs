@@ -31,6 +31,7 @@ public class playerScript : MonoBehaviour {
     bool theCheck = true;
     GameObject mainSlime;
 
+    
     private Quaternion targetRotation;
 
     private CharacterController controller;
@@ -38,9 +39,7 @@ public class playerScript : MonoBehaviour {
     Vector3 input;
 
     // Use this for initialization
-    void Start (){
-       
-       
+    void Start (){       
         controller = GetComponent<CharacterController>();
 		playerFacingRight = true;
         health = 5; // displays in the inspector but has to be changed in script.
@@ -59,7 +58,7 @@ public class playerScript : MonoBehaviour {
             input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         
 
-            if (input != Vector3.zero )
+            if ( input != Vector3.zero )
             {
                 targetRotation = Quaternion.LookRotation(input);
                 transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
@@ -87,7 +86,10 @@ public class playerScript : MonoBehaviour {
             else if (!ES.latched)
                 takeDamage = false;
             if (health <= 0 && dead == false)
-                transform.position = checkpoint.transform.position; // where frank will respawn. 
+            {
+                dead = true;
+                //transform.position = checkpoint.transform.position; // where frank will respawn. 
+            }
         }
     }
     
@@ -122,6 +124,10 @@ public class playerScript : MonoBehaviour {
     //        transform.localScale = theScale;
     //    }
     //}
+    void Movement()
+    {
+
+    }
     IEnumerator TakeDamage(float timeBetweenDamage, float damage){
         takeDamage = true;
         while (health >= 0 && ES.latched){           // will the player's health is above or equal to 0, the coroutine will run

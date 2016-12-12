@@ -76,10 +76,14 @@ public class enemyscript : MonoBehaviour {
             Latch();
         }
         if (latched)
+<<<<<<< HEAD
         {
             transform.position = enemyLatchPoint.position;
             transform.LookAt(target);
         }
+=======
+            transform.LookAt(target);
+>>>>>>> origin/development
         if (currentLunge >= lunges) 			// if the current lunge counter is greater than or equal to the lunge limit
 			nav.Stop ();						// then stop the nav mesh completely... flickr stops movement all together
 		if (latched == true && enemyDead == false && Input.GetKeyDown (shakeKey)) {   // if the enemy is latched on to the player and the player presses the right mouse button, then the shake counter will increment

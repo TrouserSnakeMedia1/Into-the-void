@@ -36,7 +36,7 @@ public class ConsoleView : MonoBehaviour
     {
         bool inProximity = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().inProximity;
         //Toggle visibility when tilde key pressed
-        if (Input.GetKeyUp("x") && inProximity == true)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && inProximity == true)
         {
             toggleVisibility();
         }
