@@ -13,9 +13,19 @@ public class slimescript : MonoBehaviour {
     GameObject playerSprite;	// the player sprite
     public float timeBetweenPlayerSpawn;// will be used for the delay between player respawn
     playerScript PS;			// going to need to grab some bools from the player scirpt
+    public Animator anim;
+    GameObject findSlime;
+    GameObject thePlayer;
+    public  bool beginChase = true;
+ 
+
     // Use this for initialization
     void Start ()
     {
+
+        thePlayer = GameObject.FindGameObjectWithTag("Player");
+        findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
+        anim = findSlime.GetComponent<Animator>();
         PS = GameObject.FindGameObjectWithTag("Player").GetComponent<playerScript>();// referencing the 3D player object... specifically the player script on the player object
         playerSprite = GameObject.FindGameObjectWithTag("Player Model");// this is being used to reference the sprite rather than player holder... We will be de activating and re activating on death
         slime = GameObject.FindGameObjectWithTag("SlimeEnemy");
@@ -24,12 +34,17 @@ public class slimescript : MonoBehaviour {
         latched = false; //not currently attacking the player
         //chargeSpeed = 2f; //defult speed
         attackDistance = 1f; //defult distance to when damage starts to take place
-	}
+        StartCoroutine(SlimeCutScene());
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        targetDistance = Vector3.Distance(targetkill.position, transform.position); //the current position of the player is equal to the targetDistance
-        Charge(); //once the enemy is either spawned in or close enough, he will constantly charge and will not die
+        thePlayer.GetComponent<playerScript>().checkCondition(beginChase);
+        if (beginChase == true)
+        {
+            targetDistance = Vector3.Distance(targetkill.position, transform.position); //the current position of the player is equal to the targetDistance
+            Charge(); //once the enemy is either spawned in or close enough, he will constantly charge and will not die
+        }
 	}
 
     void Charge()
@@ -71,5 +86,23 @@ public class slimescript : MonoBehaviour {
         PS.gameObject.transform.position = playerSpawn.transform.position;
         playerSprite.GetComponent<SpriteRenderer>().enabled = true;
         PS.dead = false;
+    }
+    IEnumerator SlimeCutScene()
+    {
+
+
+        beginChase = false;
+
+
+        //theMainCamera.GetComponent<CameraFollow>().enabled = true;
+        //anim.SetInteger("SlimeAnimation", 2);
+        yield return new WaitForSeconds(4.0f);
+        beginChase = true;
+
+        //anim.SetInteger("SlimeAnimation", 2);
+
+        //mainCamera.transform.Rotate(0, 0, 135);
+
+
     }
 }

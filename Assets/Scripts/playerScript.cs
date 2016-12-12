@@ -27,6 +27,9 @@ public class playerScript : MonoBehaviour {
     public bool takeDamage;
     public bool dead;
     bool justBeenHit=false;
+    bool pushIt = true;
+    bool theCheck = true;
+    GameObject mainSlime;
 
     private Quaternion targetRotation;
 
@@ -36,6 +39,8 @@ public class playerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start (){
+       
+       
         controller = GetComponent<CharacterController>();
 		playerFacingRight = true;
         health = 5; // displays in the inspector but has to be changed in script.
@@ -45,40 +50,45 @@ public class playerScript : MonoBehaviour {
        // rigidPlayer = GetComponent<Rigidbody>();
          ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
     }
-	// Update is called once per frame
-	void FixedUpdate (){
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        if (pushIt == true) { 
+
+            input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        
+
+            if (input != Vector3.zero )
+            {
+                targetRotation = Quaternion.LookRotation(input);
+                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
+                if (Input.GetKey(KeyCode.D))
+                    transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+                if (Input.GetKey(KeyCode.A))
+                    transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.W))
+                transform.localPosition += new Vector3(0, 0, speed * Time.deltaTime);
+            if (Input.GetKey(KeyCode.S))
+                transform.localPosition -= new Vector3(0, 0, speed * Time.deltaTime);
+
+            //Vector3 motion = input;
+            //motion *= (Mathf.Abs(input.x) == 1 && Mathf.Abs(input.z) == 1) ? .7f : 1;
+            //motion *= (Input.GetButton("Run")) ? speed : walkSpeed;
+            //motion += Vector3.up * -8;
+
+            //controller.Move(motion * Time.deltaTime);
 
 
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        if (input != Vector3.zero)
-        {
-            targetRotation = Quaternion.LookRotation(input);
-            transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
-            if (Input.GetKey(KeyCode.D))
-                transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-            if (Input.GetKey(KeyCode.A))
-                transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+
+            if (ES.latched && takeDamage == false) // if the enemy is latched and the player is not already taking damage, the corroutine will start
+                StartCoroutine(TakeDamage(timeBetween, enemyDamage));
+            else if (!ES.latched)
+                takeDamage = false;
+            if (health <= 0 && dead == false)
+                transform.position = checkpoint.transform.position; // where frank will respawn. 
         }
-        if (Input.GetKey(KeyCode.W))
-            transform.localPosition += new Vector3(0, 0, speed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.S))
-            transform.localPosition -= new Vector3(0, 0, speed * Time.deltaTime);
-
-        //Vector3 motion = input;
-        //motion *= (Mathf.Abs(input.x) == 1 && Mathf.Abs(input.z) == 1) ? .7f : 1;
-        //motion *= (Input.GetButton("Run")) ? speed : walkSpeed;
-        //motion += Vector3.up * -8;
-
-        //controller.Move(motion * Time.deltaTime);
-
-
-
-        if (ES.latched && takeDamage == false) // if the enemy is latched and the player is not already taking damage, the corroutine will start
-            StartCoroutine(TakeDamage(timeBetween, enemyDamage));
-        else if (!ES.latched)
-            takeDamage = false;
-        if (health <= 0 && dead == false)
-            transform.position = checkpoint.transform.position; // where frank will respawn. 
     }
     
     //private void HandleMovement(float horizontal)
@@ -126,6 +136,7 @@ public class playerScript : MonoBehaviour {
             StartCoroutine(CollisionCooldown()); //calls the iEnumerator
             //speed -= 2;//decreases the speed of the player on contact
         }
+       
     }
     /*void OnCollisionExit(Collision other)
     {
@@ -146,6 +157,10 @@ public class playerScript : MonoBehaviour {
         yield return new WaitForSeconds(3.0f); //keeps the speed for 3 seconds
         speed +=2; //increases the speed of the player back to normal-Peter Gartzke
         justBeenHit = false; // resets so if the player hasn't learned they can once again fall into the hazard again- Peter Gartzke
+    }
+    public void checkCondition(bool cool)
+    {
+        pushIt = cool;
     }
 }
 
