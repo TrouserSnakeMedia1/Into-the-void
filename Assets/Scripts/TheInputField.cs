@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InputField : MonoBehaviour {
+public class TheInputField : MonoBehaviour {
 	private string textFieldString = "";// nothing is being displayed in the text area. 
 	[SerializeField]
 	public string eneterPassword,passwordNeededToPass;// instructions that are shown above the text field to input the password
