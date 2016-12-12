@@ -40,7 +40,7 @@ public class Chase : MonoBehaviour {
             mainCamera.transform.position = new Vector3(target.transform.position.x + cameraOffset.x, target.transform.position.y + cameraOffset.y, target.transform.position.z + cameraOffset.z); // you are using the targets position plus an offset. the offset will create the distance between the player and the camera
             //mainCamera.GetComponent<CameraFollow>().enabled = true;
             //theSlimeSpawn.Play("SlimeAnimation");
-            anim.SetInteger("SlimeAnimation", 2);
+           
         }
 	}
 
@@ -53,7 +53,7 @@ public class Chase : MonoBehaviour {
             mainCamera.GetComponent<AudioSource>().enabled = false;
             Slime.SetActive(true);
              findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
-            theSlimeSpawn = findSlime.GetComponent<Animation>();
+          
             mainSlime = GameObject.FindGameObjectWithTag("SlimeEnemy");
             slimeSpawn = true;
             StartCoroutine(SlimeCutScene());
