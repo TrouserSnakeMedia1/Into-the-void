@@ -6,16 +6,19 @@ public class KeyCardInteraction : MonoBehaviour {
 	private GameObject MainTerminalDoor;
 	private GameObject KeyCard;
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
 	{
 		if (other.tag == "Player") 
 		{
-			KeyCard = GameObject.FindGameObjectWithTag ("KeyCard");	//sets the game object to the key card sprite
-			KeyCard.SetActive (false);	//KeyCard becomes invisible in the game view
+            if(Input.GetKey(KeyCode.Q))
+            {
+                KeyCard = GameObject.FindGameObjectWithTag("KeyCard");  //sets the game object to the key card sprite
+                KeyCard.SetActive(false);   //KeyCard becomes invisible in the game view
 
-			MainTerminalDoor = GameObject.FindGameObjectWithTag ("MainTerminalDoor");	//sets the game object to the main door object
-			MainTerminalDoor.GetComponent<AudioSource> ().enabled = true;	//plays the set audio source when the key card is picked up
-			MainTerminalDoor.SetActive (false);	//Main Terminal Door becomes invisible in the game view
+                MainTerminalDoor = GameObject.FindGameObjectWithTag("MainTerminalDoor");    //sets the game object to the main door object
+                MainTerminalDoor.GetComponent<AudioSource>().enabled = true;    //plays the set audio source when the key card is picked up
+                MainTerminalDoor.SetActive(false);	//Main Terminal Door becomes invisible in the game view
+            }
 		}
 	}
 }
