@@ -66,15 +66,18 @@ public class enemyscript : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-       // transform.Rotate(90, 0, 0);
-       
+              
         if (seePlayer == false)// if flickr does not see the enemy, then go through the field of view function
         //  anim.SetInteger("FlickerSwitch", 4);
         FieldOfView();
-		distToTarget = Vector3.Distance (transform.position, target.position);	// simple way of tracking the dist from flickr to player... This is used specifically in the latch function... Jade wants flickr to always latch at about 2.5 or whatever set distance away from the player. Tracking it through this method is very simple
-		if (latched == false && distToTarget <= attackDistance) 		// if the enemy is not latched and the dist to target is less than or equal to the attack distance then latch on to the player
-			Latch ();
-		if (currentLunge >= lunges) 			// if the current lunge counter is greater than or equal to the lunge limit
+		distToTarget = Vector3.Distance (transform.position, target.position);  // simple way of tracking the dist from flickr to player... This is used specifically in the latch function... Jade wants flickr to always latch at about 2.5 or whatever set distance away from the player. Tracking it through this method is very simple
+        if (latched == false && distToTarget <= attackDistance)
+        {       // if the enemy is not latched and the dist to target is less than or equal to the attack distance then latch on to the player
+            Latch();
+        }
+        if (latched)
+            transform.LookAt(target);
+        if (currentLunge >= lunges) 			// if the current lunge counter is greater than or equal to the lunge limit
 			nav.Stop ();						// then stop the nav mesh completely... flickr stops movement all together
 		if (latched == true && enemyDead == false && Input.GetKeyDown (shakeKey)) {   // if the enemy is latched on to the player and the player presses the right mouse button, then the shake counter will increment
 			if (shakeCounter >= shakeLimit) {
@@ -108,7 +111,7 @@ public class enemyscript : MonoBehaviour {
         latched = true;
 		nav.speed = 0;
 		transform.parent = enemyLatchPoint.transform;		// parented to the player... this takes away the need for the enemy to try and keep up with the player... it is a more  CPU friendly way
-        //transform.LookAt(target);
+       // transform.LookAt(target);
         transform.position = enemyLatchPoint.position;
 		rb.isKinematic = true; 						// sets the rigidbody to 'animation mode'
 		nav.speed = 0f;								// enemy is already moving with the player so he does not need a speed of his own.. 
@@ -119,7 +122,8 @@ public class enemyscript : MonoBehaviour {
 		}
 		return new Vector3 (Mathf.Sin (angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos (angleInDegrees * Mathf.Deg2Rad));  
 	}
-	void Patrol(){		// these are actually two different methods of having flickr patrol. but i believe the second one is more what jade wants. Patrolling is the main reason I am re working the flickr script.. that and enumerations
+	void Patrol(){		
+        // these are actually two different methods of having flickr patrol. but i believe the second one is more what jade wants. Patrolling is the main reason I am re working the flickr script.. that and enumerations
 		//destPoint = Random.Range (0, patrolPoints.Length);
 		//transform.position = patrolPoints [destPoint].position;
 
@@ -137,7 +141,8 @@ public class enemyscript : MonoBehaviour {
         nav.destination = previousSighting;	// flickr will charge at the last stored position of the player
 		nav.speed = chargeSpeed;		// setting the nav movement speed
 		StartCoroutine (DelayInFindingTargets (timeBetweenAttacks));// this delays the enemy from finding frank right away after his attack. Otherwise flickr would just be chasing frank. 
-	}
+        transform.LookAt(target);
+    }
 	IEnumerator DelayInFindingTargets(float delay){		// this ienumerator controls what happens during franks delay in finding a new attack position
 		yield return new WaitForSeconds (delay);	// the delay in attacks
 		if (!latched && currentLunge < lunges) {	// is flickr is not latched and the current lunges are less than the max lunges
