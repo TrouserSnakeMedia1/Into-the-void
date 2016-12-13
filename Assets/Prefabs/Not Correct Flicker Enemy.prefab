@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012965571072}
   - 114: {fileID: 114000010166741028}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Not Correct Flicker Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,6 @@ MonoBehaviour:
   enemyDead: 0
   seePlayer: 0
   shakeKey: 323
-  anim: {fileID: 95000010107468328}
 --- !u!114 &114000013845098380
 MonoBehaviour:
   m_ObjectHideFlags: 1
