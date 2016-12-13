@@ -38,6 +38,8 @@ TagManager:
   - EndBank
   - KeyCard
   - MainTerminalDoor
+  - EndBank
+  - StartingBank
   layers:
   - Default
   - TransparentFX

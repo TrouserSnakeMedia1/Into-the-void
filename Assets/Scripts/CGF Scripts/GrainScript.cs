@@ -7,7 +7,7 @@ public class GrainScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        grainStart = false;
+        grainStart = true;
 		grainEnd = false;
     }
 
@@ -21,15 +21,23 @@ public class GrainScript : MonoBehaviour {
 		bool ChickenBoolEnd = GameObject.FindGameObjectWithTag ("Chicken").GetComponent<ChickenScript> ().chickenEnd;	// creating a bool that is referencing the chicken end bool from the chicken script
 		bool FoxBoolEnd = GameObject.FindGameObjectWithTag ("Fox").GetComponent<FoxScript> ().foxEnd;					// creating a bool that is referencing the fox end bool from the fox script
 		bool PlayerBoolEnd = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCGFscript> ().playerEnd;	// creating a bool that is referencing the player end bool from the playercgf script
-        if (PlayerBoolStart == false && FoxBoolStart == false && grainStart == true && ChickenBoolStart == true)		// if the player and fox are not on the starting bank when the grain and chicken are, the grain is set to inactive
-			this.gameObject.SetActive(false);
-		if (PlayerBoolEnd == false && FoxBoolEnd == false && grainEnd == true && ChickenBoolEnd == true)				// if the player and fox are not on the end bank when the grain and chicken are, the grain is set to inactive.
-			this.gameObject.SetActive (false);
+        if (PlayerBoolStart == false && FoxBoolStart == false && grainStart == true && ChickenBoolStart == true)
+        {       // if the player and fox are not on the starting bank when the grain and chicken are, the grain is set to inactive
+            print("word");
+            this.gameObject.SetActive(false);
+        }
+        if (PlayerBoolEnd == false && FoxBoolEnd == false && grainEnd == true && ChickenBoolEnd == true)
+        {               // if the player and fox are not on the end bank when the grain and chicken are, the grain is set to inactive.
+            print("Word1");
+            this.gameObject.SetActive(false);
+        }
     }
     void OnTriggerEnter(Collider other)
     {
-		if (other.tag == "StartingBank")	// if the grain enters a collider with an object tagged starting bank, the grain start bool is checked to true.. indicating that the grain is at the start bank
+        if (other.tag == "StartingBank")
+        {	// if the grain enters a collider with an object tagged starting bank, the grain start bool is checked to true.. indicating that the grain is at the start bank
             grainStart = true;
+        }
 		if (other.tag == "EndBank") {		// if the grain enters a collider with an object tagged end bank, the grain end bool is checked to true and grain start to false
 			grainEnd = true;
 			grainStart = false;

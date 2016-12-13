@@ -34,8 +34,11 @@ public class ChickenScript : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-		if (other.tag == "StartingBank")	// if the chicken exits a collider with an object tagged starting bank, the chicken end bool is unchecked to false.. indicating that the chicken is not at the start bank
+        if (other.tag == "StartingBank")
+        {   // if the chicken exits a collider with an object tagged starting bank, the chicken end bool is unchecked to false.. indicating that the chicken is not at the start bank
+            print(other);
             chickenStart = false;
+        }
 		if (other.tag == "EndBank") 		// if the chicken enters a collider with an object tagged end bank, the chicken end bool is unchecked to false.. indicating that the grain is not at the end bank
 			chickenEnd = false;
 	}
