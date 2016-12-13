@@ -62,3 +62,4 @@ MonoBehaviour:
   flickrRespawnTime: 2
   flickrTimeAlive: 25
   timeBetweenPlayerSpawn: 3
+  player: {fileID: 1000013376773498, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
