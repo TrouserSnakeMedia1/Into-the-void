@@ -10103,6 +10103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1471912627}
+  clip: {fileID: 8300000, guid: 6cd1746c9069d674586d43384ac809ac, type: 3}
   push: 0
 --- !u!95 &1471912627
 Animator:

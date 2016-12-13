@@ -7,8 +7,9 @@ public class FrankAnimation : MonoBehaviour
     public Animator anim; //creates a empty animator called anim thats public  so it can be set in the unity inspector 
     GameObject playerModel; // creates a empty gameobject called playerModel
     GameObject thePlayer; // creates a empty gameobject called thePlayer
-
-
+    //public AudioSource pushAudio;
+    public AudioClip clip;
+    AudioSource theAudio;
     public bool push; // creates a public bool called push so it can be seen if its working in the unity inspector and also so other scripts have easier acess to it.
     bool pushIt; // creates a  bool called pushIt
     bool yourDamaged; // creates a  bool called yourDamaged
@@ -17,9 +18,12 @@ public class FrankAnimation : MonoBehaviour
     {
         if (superOther.gameObject.tag == "Box") // checks if the gameobject with the collider superOther gameobject tag = Box
         {
+            print("Play sound");
             push = true; // if the above if statement is true then the public bool push is set to true
+            if(!superOther.GetComponent<AudioSource>().isPlaying)
+            superOther.GetComponent<AudioSource>().PlayOneShot(clip);
         }
-      
+
     }
     void OnTriggerExit(Collider superOther) // checks constantly if Frank has exited the triggered with  a generic collider being called/named superOther
     {
@@ -38,7 +42,7 @@ public class FrankAnimation : MonoBehaviour
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>(); // finds and sets the animator named anim to equal animator that is attached to this gameobject this script is attached to
-
+        theAudio = GetComponent<AudioSource>();
 
     }
     void Start()
@@ -61,15 +65,17 @@ public class FrankAnimation : MonoBehaviour
         if (pushIt == true) // checks to see if pushIt is true and pushIt equals push so if push is true than pushIt is true
         {
 
-          //  print("push animation?");
+            //  print("push animation?");
             anim.SetInteger("WalktoWalkFlash", 6); // plays the push box animation
+           
         }
         else if (yourDamaged == true) // checks to see if yourDamaged is true and yourDamaged equals takeDamage so if takeDamage is true than yourDamaged is true
         {
 
-          //  print("damage animation?");
+            //  print("damage animation?");
             anim.SetInteger("WalktoWalkFlash", 7); // plays the damage/de rez animation
         }
+
 
 
         //else if (GameObject.Find("Spotlight").GetComponent<Light>().enabled == true && Input.GetKey(KeyCode.A) && pushIt == true || GameObject.Find("Spotlight").GetComponent<Light>().enabled == true && Input.GetKey(KeyCode.W) || GameObject.Find("Spotlight").GetComponent<Light>().enabled == true && Input.GetKey(KeyCode.D) || GameObject.Find("Spotlight").GetComponent<Light>().enabled == true && Input.GetKey(KeyCode.S))
