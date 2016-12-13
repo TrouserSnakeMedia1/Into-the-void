@@ -7556,62 +7556,6 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011917446710, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012440852572, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
-      propertyPath: m_TagString
-      value: Terminal2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000010984233258, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -103
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000010327644172, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -345
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000010327644172, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.4354778
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000013313396956, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.13763851
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000013313396956, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 155
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000012706256986, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.2239634
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000012706256986, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 103
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011798142740, guid: 3fbda87eee494de4e98d408fce048cb9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -307
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013917098832, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012440852572, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fbda87eee494de4e98d408fce048cb9, type: 2}
   m_IsPrefabParent: 0
