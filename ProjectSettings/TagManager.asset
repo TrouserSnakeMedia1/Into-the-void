@@ -36,6 +36,8 @@ TagManager:
   - Terminal#5
   - StartBank
   - EndBank
+  - KeyCard
+  - MainTerminalDoor
   layers:
   - Default
   - TransparentFX

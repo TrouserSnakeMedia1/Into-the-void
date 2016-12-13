@@ -57,7 +57,7 @@ public class enemyscript : MonoBehaviour {
 		enemyDead = false;							// and if he is just entering the world then obviously we do not want him dead. 
 		//startingPos = transform.position;			// this does not relate witht he previous sighting... This was going to work with the patrol... once the lunge limit was reached then flickr would go back to where he started
 		shakeLimit = Random.Range(5,11);						// public var but is set in the script so it will display in the inspector but cannot be changed there.
-		lunges = Random.Range(3,6);			// setting a random range for the enemy's lunges. it is a range of 3 to 5. even though it has six as the max limit. It return values less than the specified max limit
+		lunges = Random.Range(6,11);			// setting a random range for the enemy's lunges. it is a range of 3 to 5. even though it has six as the max limit. It return values less than the specified max limit
 		FieldOfView();						// start it out right with the field of view function
 	}
 	void Start () {
@@ -116,6 +116,7 @@ public class enemyscript : MonoBehaviour {
 	public void Latch(){
      //  anim.SetInteger("FlickerSwitch", 3);
         latched = true;
+        print(latched);
 		nav.speed = 0;
 		transform.parent = enemyLatchPoint.transform;		// parented to the player... this takes away the need for the enemy to try and keep up with the player... it is a more  CPU friendly way
        // transform.LookAt(target);
@@ -148,14 +149,15 @@ public class enemyscript : MonoBehaviour {
         nav.destination = previousSighting;	// flickr will charge at the last stored position of the player
 		nav.speed = chargeSpeed;		// setting the nav movement speed
 		StartCoroutine (DelayInFindingTargets (timeBetweenAttacks));// this delays the enemy from finding frank right away after his attack. Otherwise flickr would just be chasing frank. 
-        transform.LookAt(target);
+        
     }
 	IEnumerator DelayInFindingTargets(float delay){		// this ienumerator controls what happens during franks delay in finding a new attack position
 		yield return new WaitForSeconds (delay);	// the delay in attacks
 		if (!latched && currentLunge < lunges) {	// is flickr is not latched and the current lunges are less than the max lunges
 			transform.LookAt (target);				// then look at the target... (this is because the enemy would have a general idead of what direction frank headed after evading him and we are faking that AI right here)
-			seePlayer = false;						// now flickr no longer sees the player because he is searching for his new current position
-			currentLunge++;							// and this is where we will be incrementing the current lunge counter.
+			seePlayer = false;                      // now flickr no longer sees the player because he is searching for his new current position
+            transform.LookAt(target);
+            currentLunge++;							// and this is where we will be incrementing the current lunge counter.
 			FieldOfView ();							// Time to send this through the loop again... 
 		} else if(currentLunge < lunges){			// pretty sure this is a pointless else if... kinda does the same thing as the if... I do not know what I was thinking.... Like i said, I was working on the same AI scrupt for too long. My logic was getting jumbled
 			FieldOfView ();							// these if state ments most likely will not be needed in the next version of this script.
