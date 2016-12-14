@@ -101,12 +101,13 @@ public class FeederEnemy : MonoBehaviour {
         idleAnimationCheck = false;
         //print("attack");
 
-        if (distance > maxDistance) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
+        if (distance > maxDistance ) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
+            feederDamagedPlayer = false;
             print("start chase again");
             state = FeederEnemy.State.CHASE;
 
         }
-        else if (stunned.stunFeeder == false)
+        else if (stunned.stunFeeder == false && findplayerHealth > 0)
         {
             feederDamagedPlayer = true;
             attackAnimationCheck = true;

@@ -22,7 +22,8 @@ public class playerScript : MonoBehaviour {
     public float walkSpeed = 5;
 
     public int timeUntilRespawn; // seconds until frank respawns 
-
+    public float timer = 3.0f;
+    public float nextAttack;
     public GameObject checkpoint; // checkpoint that frank respawns at
     private enemyscript ES;
     GameObject Feeder;
@@ -56,18 +57,42 @@ public class playerScript : MonoBehaviour {
     // Update is called once per frame
     void CheckFeeder()
     {
-       
-            takeDamage = true;
-            health -= feederDamage;
+
+        if (timer <= 0)
+        {
+          
+                takeDamage = true;
+                health -= feederDamage;
+                timer = 0.5f;
+            }
+
         
+
+        timer -= Time.deltaTime;
+      
+
+
     }
+    //IEnumerator FeederDamage(float nextAttack)
+    //{
+    //    takeDamage = true;
+    //    while (health >= 0 )
+    //    {
+
+    //        health -= feederDamage;
+
+    //        yield return new WaitForSeconds(nextAttack);
+    //    }
+    //}
     void Update()
     {
         hasFeederDamagedPlayer = Feeder.GetComponent<FeederEnemy>().feederDamagedPlayer;
         if (hasFeederDamagedPlayer == true)
         {
+            //StartCoroutine(FeederDamage(nextAttack));
             CheckFeeder();
         }
+      
     }
     
     void FixedUpdate()

@@ -620,11 +620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c41436db1f1d9479382619370e82d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 0
+  viewRadius: 45
   feeder:
     serializedVersion: 2
-    m_Bits: 0
-  viewAngle: 0
+    m_Bits: 4096
+  viewAngle: 28
   stunFeeder: 0
   visibleTargets: []
   toggle: {fileID: 108000012492957148}
@@ -651,6 +651,8 @@ MonoBehaviour:
   rotationSpeed: 450
   walkSpeed: 5
   timeUntilRespawn: 0
+  timer: 3
+  nextAttack: 0
   checkpoint: {fileID: 0}
   takeDamage: 0
   dead: 0
