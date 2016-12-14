@@ -34,6 +34,10 @@ public class FeederEnemy : MonoBehaviour {
    public bool idleAnimationCheck;
     public bool attackAnimationCheck;
     public float maxDistance;
+    public bool takeDamage;
+    private float findplayerHealth;
+    private GameObject thePlayer;
+    public float feederDamage;
 
     public bool runOnce;
 
@@ -41,6 +45,8 @@ public class FeederEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //distance = Vector3.Distance(feederPosition.position, playerPosition.position);
+        thePlayer = GameObject.FindGameObjectWithTag("Player");
+        //findplayerHealth = thePlayer.GetComponent<playerScript>().health;
         runOnce = false;
 		stunned = GameObject.FindGameObjectWithTag ("Flashlight").GetComponent<PlayerFlashlight> ();
 		nav = GetComponent<NavMeshAgent> ();
@@ -70,6 +76,18 @@ public class FeederEnemy : MonoBehaviour {
     void Update()
     {
         distance = Vector3.Distance(feederPosition.position, playerPosition.position);
+        findplayerHealth = thePlayer.GetComponent<playerScript>().health;
+        if (state == FeederEnemy.State.ATTACK)
+        {
+
+           
+            while (findplayerHealth >= 0)
+            {           // will the player's health is above or equal to 0, the coroutine will run
+                print("damage");
+                findplayerHealth -= feederDamage;// takes
+                
+            }
+        }
     }
 	IEnumerator DelayForChase(){ // there should be a small amount of time between the enemy spotting us and it chasing
 		yield return new WaitForSeconds (delayInChase);
@@ -83,12 +101,18 @@ public class FeederEnemy : MonoBehaviour {
         if (distance > maxDistance) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
             print("start chase again");
             state = FeederEnemy.State.CHASE;
+
         }
       else  if (stunned.stunFeeder == false)
         {
 
             attackAnimationCheck = true;
-            yield return new WaitForSeconds(delayBetweenAttack);
+            while (findplayerHealth >= 0 )
+            {           // will the player's health is above or equal to 0, the coroutine will run
+                //print("damage");
+                //findplayerHealth -= feederDamage;// takes
+                yield return new WaitForSeconds(delayBetweenAttack);
+            }
         }
       
 
