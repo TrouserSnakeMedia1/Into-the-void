@@ -276,8 +276,10 @@ MonoBehaviour:
   idleAnimationCheck: 0
   attackAnimationCheck: 0
   maxDistance: 2
-  takeDamage: 0
+  playerTakeDamage: 0
+  feederDamageCheck: 0
   feederDamage: 1
+  feederDamagedPlayer: 0
   runOnce: 0
 --- !u!135 &135000011299468428
 SphereCollider:

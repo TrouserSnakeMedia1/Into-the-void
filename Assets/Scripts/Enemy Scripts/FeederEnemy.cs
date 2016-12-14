@@ -4,119 +4,122 @@ using System;
 
 
 public class FeederEnemy : MonoBehaviour {
-	
-	public enum State	// setting the states for the finite state machine
-	{
-		PATROL,	//used to call the feeders patrol function
-		CHASE,	// used to tell the feeder to switch to the chase function
-		ATTACK,	// used to tell the feeder to switch to the attack function
-		STUNNED,
-	}
-	public State state;	// refernce to the state of the public enum
-	private bool alive;// whether the feeder is alive or not
-	//chase variables
-	public float chaseSpeed;	// nav speed during the chase
-	public float delayInChase;	// delay between the feeder attack|| patrol and chasing the player
-	//patrol variables
-	public float patrolSpeed; 
-	//attack variables
-	public float attackDistance;	// distance at which the feeder should at frank
-	public float delayBetweenAttack;	// if frank is in range after the first attack... this will be the delay of when the feeder may attack again
-	//stunned variables
-	public float stunDuration; 			// how long the feeder enemy should be stunnded for
-	[HideInInspector]
-	public GameObject player;	//  do not set in the inspector. 		
+
+    public enum State   // setting the states for the finite state machine
+    {
+        PATROL, //used to call the feeders patrol function
+        CHASE,  // used to tell the feeder to switch to the chase function
+        ATTACK, // used to tell the feeder to switch to the attack function
+        STUNNED,
+    }
+    public State state; // refernce to the state of the public enum
+    private bool alive;// whether the feeder is alive or not
+                       //chase variables
+    public float chaseSpeed;    // nav speed during the chase
+    public float delayInChase;  // delay between the feeder attack|| patrol and chasing the player
+                                //patrol variables
+    public float patrolSpeed;
+    //attack variables
+    public float attackDistance;    // distance at which the feeder should at frank
+    public float delayBetweenAttack;    // if frank is in range after the first attack... this will be the delay of when the feeder may attack again
+                                        //stunned variables
+    public float stunDuration;          // how long the feeder enemy should be stunnded for
+    [HideInInspector]
+    public GameObject player;	//  do not set in the inspector. 		
     public Transform playerPosition;
     public Transform feederPosition;
     PlayerFlashlight stunned;
     float distance;
     public bool walkAnimationCheck;
-   public bool idleAnimationCheck;
+    public bool idleAnimationCheck;
     public bool attackAnimationCheck;
     public float maxDistance;
-    public bool takeDamage;
+    public bool playerTakeDamage;
+    public bool feederDamageCheck;
     private float findplayerHealth;
     private GameObject thePlayer;
     public float feederDamage;
+    public bool feederDamagedPlayer;
 
     public bool runOnce;
 
-	NavMeshAgent nav;
-	// Use this for initialization
-	void Start () {
+    NavMeshAgent nav;
+    // Use this for initialization
+    void Start() {
         //distance = Vector3.Distance(feederPosition.position, playerPosition.position);
         thePlayer = GameObject.FindGameObjectWithTag("Player");
         //findplayerHealth = thePlayer.GetComponent<playerScript>().health;
         runOnce = false;
-		stunned = GameObject.FindGameObjectWithTag ("Flashlight").GetComponent<PlayerFlashlight> ();
-		nav = GetComponent<NavMeshAgent> ();
-		state = FeederEnemy.State.PATROL;	// we want the feeder to start of in the patrol function
-		alive = true;		// the feeder is indeed alive.
-		StartCoroutine ("FSM");	// we need to call the ienumerator finite state machine... This will start the feeders state machine
-	}
-	IEnumerator FSM(){ // finite sate machine.. Will control what state the enemy is in.. 
-		while (alive) {	// these only apply when the feeder is alive... Although the frank cannot kill this enemy.. only stun
-			switch (state) {		
-			case State.PATROL:	// referencing the patrol state in the enum
-				Patrol ();		// what the feeder should do when in this state
-				break;
-			case State.CHASE:	// reference to the chase state in the enum
-				Chase();
-				break;
-			case State.ATTACK:	// now referencing the attack state.
-				StartCoroutine("Attack"); // It is in an ienumerator becasue there should be a delay betweent he attacks.
-				break;
-			case State.STUNNED:
-				StartCoroutine("Stunned");
-				break;
-			}
-			yield return null;	// we are not returning anything
-		}
-	}
+        stunned = GameObject.FindGameObjectWithTag("Flashlight").GetComponent<PlayerFlashlight>();
+        nav = GetComponent<NavMeshAgent>();
+        state = FeederEnemy.State.PATROL;   // we want the feeder to start of in the patrol function
+        alive = true;       // the feeder is indeed alive.
+        StartCoroutine("FSM");  // we need to call the ienumerator finite state machine... This will start the feeders state machine
+    }
+    IEnumerator FSM() { // finite sate machine.. Will control what state the enemy is in.. 
+        while (alive) { // these only apply when the feeder is alive... Although the frank cannot kill this enemy.. only stun
+            switch (state) {
+                case State.PATROL:  // referencing the patrol state in the enum
+                    Patrol();       // what the feeder should do when in this state
+                    break;
+                case State.CHASE:   // reference to the chase state in the enum
+                    Chase();
+                    break;
+                case State.ATTACK:  // now referencing the attack state.
+                    StartCoroutine("Attack"); // It is in an ienumerator becasue there should be a delay betweent he attacks.
+                    break;
+                case State.STUNNED:
+                    StartCoroutine("Stunned");
+                    break;
+            }
+            yield return null;  // we are not returning anything
+        }
+    }
     void Update()
     {
         distance = Vector3.Distance(feederPosition.position, playerPosition.position);
         findplayerHealth = thePlayer.GetComponent<playerScript>().health;
-        if (state == FeederEnemy.State.ATTACK)
-        {
+        feederDamageCheck = thePlayer.GetComponent<playerScript>().takeDamage;
+        //if (state == FeederEnemy.State.ATTACK && feederDamageCheck == true)
+        //{
 
-           
-            while (findplayerHealth >= 0)
-            {           // will the player's health is above or equal to 0, the coroutine will run
-                print("damage");
-                findplayerHealth -= feederDamage;// takes
-                
-            }
-        }
+
+        //    while (findplayerHealth >= 0)
+        //{           // will the player's health is above or equal to 0, the coroutine will run
+        //    //print("damage");
+        //    //findplayerHealth -= feederDamage;// takes
+
+        //}
+        //}
     }
-	IEnumerator DelayForChase(){ // there should be a small amount of time between the enemy spotting us and it chasing
-		yield return new WaitForSeconds (delayInChase);
-		state = FeederEnemy.State.CHASE;
-	}
-	IEnumerator Attack(){   // the attack will have an animation to handle most of it.
+    IEnumerator DelayForChase() { // there should be a small amount of time between the enemy spotting us and it chasing
+        yield return new WaitForSeconds(delayInChase);
+        state = FeederEnemy.State.CHASE;
+    }
+    IEnumerator Attack() {   // the attack will have an animation to handle most of it.
         walkAnimationCheck = false;
         idleAnimationCheck = false;
         //print("attack");
-       
+
         if (distance > maxDistance) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
             print("start chase again");
             state = FeederEnemy.State.CHASE;
 
         }
-      else  if (stunned.stunFeeder == false)
+        else if (stunned.stunFeeder == false)
         {
-
+            feederDamagedPlayer = true;
             attackAnimationCheck = true;
-            while (findplayerHealth >= 0 )
-            {           // will the player's health is above or equal to 0, the coroutine will run
-                //print("damage");
-                //findplayerHealth -= feederDamage;// takes
-                yield return new WaitForSeconds(delayBetweenAttack);
-            }
-        }
-      
+           
 
-        // print ("attacking");	// right now there is only a print happening
+            print("damage");
+
+            yield return new WaitForSeconds(delayBetweenAttack);
+        }
+    
+
+
+    // print ("attacking");	// right now there is only a print happening
 
 
 
@@ -153,6 +156,7 @@ public class FeederEnemy : MonoBehaviour {
             if (distance <= maxDistance)
             { // the feeder enemy will be raycasting and if frank is less than the attack distance away, the feeder enemy should go into attack mode
                 print("the attack");
+               
                 state = FeederEnemy.State.ATTACK; // the actual switching of the states
                
             }

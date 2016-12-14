@@ -9658,6 +9658,7 @@ MonoBehaviour:
   speed: 3
   timeBetween: 1.5
   enemyDamage: 1
+  feederDamage: 1
   health: 0
   maxHealth: 0
   rotationSpeed: 450
