@@ -26,20 +26,22 @@ public class FeederEnemy : MonoBehaviour {
 	public float stunDuration; 			// how long the feeder enemy should be stunnded for
 	[HideInInspector]
 	public GameObject player;	//  do not set in the inspector. 		
-
-	PlayerFlashlight stunned;
-
+    public Transform playerPosition;
+    public Transform feederPosition;
+    PlayerFlashlight stunned;
+    float distance;
     public bool walkAnimationCheck;
    public bool idleAnimationCheck;
     public bool attackAnimationCheck;
-
+    public float maxDistance;
 
     public bool runOnce;
 
 	NavMeshAgent nav;
 	// Use this for initialization
 	void Start () {
-		runOnce = false;
+        //distance = Vector3.Distance(feederPosition.position, playerPosition.position);
+        runOnce = false;
 		stunned = GameObject.FindGameObjectWithTag ("Flashlight").GetComponent<PlayerFlashlight> ();
 		nav = GetComponent<NavMeshAgent> ();
 		state = FeederEnemy.State.PATROL;	// we want the feeder to start of in the patrol function
@@ -65,6 +67,10 @@ public class FeederEnemy : MonoBehaviour {
 			yield return null;	// we are not returning anything
 		}
 	}
+    void Update()
+    {
+        distance = Vector3.Distance(feederPosition.position, playerPosition.position);
+    }
 	IEnumerator DelayForChase(){ // there should be a small amount of time between the enemy spotting us and it chasing
 		yield return new WaitForSeconds (delayInChase);
 		state = FeederEnemy.State.CHASE;
@@ -72,17 +78,30 @@ public class FeederEnemy : MonoBehaviour {
 	IEnumerator Attack(){   // the attack will have an animation to handle most of it.
         walkAnimationCheck = false;
         idleAnimationCheck = false;
-        attackAnimationCheck = true;
-        if (stunned.stunFeeder == false) {
-          
+        //print("attack");
+       
+        if (distance > maxDistance) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
+            print("start chase again");
+            state = FeederEnemy.State.CHASE;
+        }
+      else  if (stunned.stunFeeder == false)
+        {
 
-           // print ("attacking");	// right now there is only a print happening
-			yield return new WaitForSeconds (delayBetweenAttack);
-		} else if (runOnce == false && stunned.stunFeeder == true) {
-			state = FeederEnemy.State.STUNNED;			
-		}								// I will be putting in another raycast and if frank is within that range, then frank will take damage... The attack range should be slightly farther than the attack distance
+            attackAnimationCheck = true;
+            yield return new WaitForSeconds(delayBetweenAttack);
+        }
+      
 
-	}
+        // print ("attacking");	// right now there is only a print happening
+
+
+
+        else if (runOnce == false && stunned.stunFeeder == true)
+        {
+            state = FeederEnemy.State.STUNNED;
+        }                               // I will be putting in another raycast and if frank is within that range, then frank will take damage... The attack range should be slightly farther than the attack distance
+        
+    }
 	void Patrol(){      // the feeder enemy will only have the feeding animation playing during its "patrol"
         walkAnimationCheck = false;
         idleAnimationCheck = true;
@@ -99,18 +118,25 @@ public class FeederEnemy : MonoBehaviour {
         walkAnimationCheck = true;
         idleAnimationCheck = false;
         attackAnimationCheck = false;
-        if (stunned.stunFeeder == false) {
-			//print ("chase");
-         
-            RaycastHit hit;		// gonna be using a raycast soon....
-			nav.speed = chaseSpeed;// setting the speed
-			nav.destination = player.transform.position; // the nav dest is the specified player position
-			if (Physics.Raycast (transform.position, transform.forward, out hit, attackDistance)) { // the feeder enemy will be raycasting and if frank is less than the attack distance away, the feeder enemy should go into attack mode
-				state = FeederEnemy.State.ATTACK; // the actual switching of the states
-			}
-		} else if(runOnce == false && stunned.stunFeeder == true){
-			state = FeederEnemy.State.STUNNED;
-		}
+        if (stunned.stunFeeder == false)
+        {
+            print("chase");
+           
+            /* RaycastHit hit;	*/    // gonna be using a raycast soon....
+            nav.speed = chaseSpeed;// setting the speed
+            nav.destination = player.transform.position; // the nav dest is the specified player position
+            //state = FeederEnemy.State.ATTACK;
+            if (distance <= maxDistance)
+            { // the feeder enemy will be raycasting and if frank is less than the attack distance away, the feeder enemy should go into attack mode
+                print("the attack");
+                state = FeederEnemy.State.ATTACK; // the actual switching of the states
+               
+            }
+            else if (runOnce == false && stunned.stunFeeder == true)
+            {
+                state = FeederEnemy.State.STUNNED;
+            }
+        }
 	}
 	void OnTriggerEnter(Collider other){ // when the player comes into the sphere collider, we will store that object as the player... only if the object has a tag of "Player"
 		if (other.tag == "Player") {
@@ -121,8 +147,11 @@ public class FeederEnemy : MonoBehaviour {
 	void OnTriggerStay(Collider other){// if the enemy is chasing|| attacking and frank is still in the collider area, then player is still the collider game object
 		if (other.tag == "Player") {
 			player = other.gameObject;
-           // state = FeederEnemy.State.CHASE;
-		}
+          
+                //state = FeederEnemy.State.ATTACK;
+            
+           //state = FeederEnemy.State.CHASE;
+        }
 	}
 	void OnTriggerExit(Collider other){ // in chris' doc, he says that the feeder enemy should stop pursuit if frank leaves the range or breaks LOS... This function does jsut that... But since the feeder enemy does not have eyes.. The LOS is not really a thing... Instead it is a hearing area and that is why the sphere collider suffices and we do not need to worry about if the player is actually in a cone of view in front of the feeder enemy
 		if (other.tag == "Player") { // if the player leaves the sphere, the feeder enemy goes into its stand still patrol mode.

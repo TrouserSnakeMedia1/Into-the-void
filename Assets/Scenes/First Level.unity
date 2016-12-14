@@ -4688,29 +4688,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 135000011299468428, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
+    - target: {fileID: 114000012655439352, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
         type: 2}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 195000013444225504, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
-        type: 2}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: playerPosition
+      value: 
+      objectReference: {fileID: 1348496909}
     - target: {fileID: 195000013444225504, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
         type: 2}
       propertyPath: m_StoppingDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012655439352, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3,
-        type: 2}
-      propertyPath: attackDistance
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010443692728, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8c8d8a9542f8014c8fa99b69dd4cbd3, type: 2}
@@ -9023,7 +9009,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4309.18, y: -8364.3, z: -49.84}
+  m_LocalPosition: {x: 4289.8, y: -8364.3, z: -90.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
