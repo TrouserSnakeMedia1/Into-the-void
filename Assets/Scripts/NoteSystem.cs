@@ -140,47 +140,47 @@ public class NoteSystem : MonoBehaviour {
         if(noteRange1 == true && readTheNote == true)
         {
             note1PopUp = false;
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText1, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText1, myStyle);
         }
         if (noteRange2 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText2, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText2, myStyle);
         }
         if (noteRange3 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText3, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText3, myStyle);
         }
         if (noteRange4 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText4, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText4, myStyle);
         }
         if (noteRange5 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText5, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText5, myStyle);
         }
         if (noteRange6 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText6, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText6, myStyle);
         }
         if (noteRange7 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText7, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText7, myStyle);
         }
         if (noteRange8 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText8, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText8, myStyle);
         }
         if (noteRange9 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText9, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText9, myStyle);
         }
         if (noteRange10 == true && readTheNote == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), noteText10, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), noteText10, myStyle);
         }
-        if (note1PopUp == true )
+        if (note1PopUp == true && noteRange1 == true)
         {
-            GUI.Label(new Rect(10, 25, 1000, 300), pickupIndicator, myStyle);
+            GUI.Label(new Rect(10, 25, 1300, 300), pickupIndicator, myStyle);
         }
     }
     
