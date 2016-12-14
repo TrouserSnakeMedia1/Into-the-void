@@ -16,6 +16,7 @@ public class NoteSystem : MonoBehaviour {
     public bool noteRange9 = false;
     public bool noteRange10 = false;
     public bool readTheNote = false;
+    public bool note1PopUp = false;
     public string noteText1 = "";
     public string noteText2 = "";
     public string noteText3 = "";
@@ -26,6 +27,7 @@ public class NoteSystem : MonoBehaviour {
     public string noteText8 = "";
     public string noteText9 = "";
     public string noteText10 = "";
+    public string pickupIndicator = "";
     public Font font;
 
     void Start()
@@ -45,6 +47,7 @@ public class NoteSystem : MonoBehaviour {
         if(other.tag == "Note#1")
         {
             noteRange1 = true;
+            note1PopUp = true;
         }
         if (other.tag == "Note#2")
         {
@@ -136,6 +139,7 @@ public class NoteSystem : MonoBehaviour {
         myStyle.normal.textColor = Color.yellow;
         if(noteRange1 == true && readTheNote == true)
         {
+            note1PopUp = false;
             GUI.Label(new Rect(10, 25, 1000, 300), noteText1, myStyle);
         }
         if (noteRange2 == true && readTheNote == true)
@@ -173,6 +177,10 @@ public class NoteSystem : MonoBehaviour {
         if (noteRange10 == true && readTheNote == true)
         {
             GUI.Label(new Rect(10, 25, 1000, 300), noteText10, myStyle);
+        }
+        if (note1PopUp == true )
+        {
+            GUI.Label(new Rect(10, 25, 1000, 300), pickupIndicator, myStyle);
         }
     }
     

@@ -9311,7 +9311,8 @@ MonoBehaviour:
 --- !u!114 &1396360134
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000014029408140, guid: 403a4769ce86e47b6aea3ce7f9f28e2d,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_Enabled: 1
@@ -9330,7 +9331,8 @@ MonoBehaviour:
   noteRange9: 0
   noteRange10: 0
   readTheNote: 0
-  noteText1: 
+  note1PopUp: 0
+  noteText1: Cool Beans!
   noteText2: 
   noteText3: 
   noteText4: 
@@ -9340,7 +9342,8 @@ MonoBehaviour:
   noteText8: 
   noteText9: 
   noteText10: 
-  font: {fileID: 0}
+  pickupIndicator: Press Left Shift Key
+  font: {fileID: 12800000, guid: 661c219d41713924ca9219dd9ba7a62b, type: 3}
 --- !u!1001 &1409297940
 Prefab:
   m_ObjectHideFlags: 0
