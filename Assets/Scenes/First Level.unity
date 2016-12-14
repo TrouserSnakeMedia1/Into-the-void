@@ -10122,11 +10122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c41436db1f1d9479382619370e82d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 45
+  viewRadius: 5
   feeder:
     serializedVersion: 2
     m_Bits: 4096
-  viewAngle: 28
+  viewAngle: 35
   stunFeeder: 0
   visibleTargets: []
   toggle: {fileID: 1458931428}

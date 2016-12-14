@@ -190,10 +190,13 @@ public class FeederEnemy : MonoBehaviour {
 	}
 	public IEnumerator Stunned(){
 		runOnce = true;
-		transform.position += (transform.position - player.transform.position) / 2;
-		if (stunned.stunFeeder == true) {
+        Vector3 position = transform.position;
+        position.y += 5;
+        transform.position = position;
+        //transform.position += (transform.position + thePlayer.transform.position) / 2;
+        if (stunned.stunFeeder == true) {
 			nav.speed = 0;
-			transform.LookAt (player.transform.position);
+			transform.LookAt (thePlayer.transform.position);
 			yield return new WaitForSeconds (stunDuration);
 			stunned.stunFeeder = false;
 		}
