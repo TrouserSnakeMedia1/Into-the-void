@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour {
     public static GameControl control;
    
-    public float Health;
+    //public float Health;
     public GameObject Player;
 
     private int buttonWidth = 200; //How wide the button is
@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 30), "Health: " + Health);
+        //GUI.Label(new Rect(10, 10, 100, 30), "Health: " + Health);
 
         if (paused )
         {
@@ -87,7 +87,7 @@ public class GameControl : MonoBehaviour {
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
         PlayerData data = new PlayerData();
-        data.Health = Health;
+        //data.Health = Health;
         
 
         bf.Serialize(file, data);
@@ -105,7 +105,7 @@ public class GameControl : MonoBehaviour {
             PlayerData data = (PlayerData)bf.Deserialize(file);
             file.Close();
 
-            Health = data.Health;
+            //Health = data.Health;
         }
     }
     bool togglePause()

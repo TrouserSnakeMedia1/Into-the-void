@@ -115,7 +115,7 @@ GameObject:
   - 82: {fileID: 82000012877796894}
   - 114: {fileID: 114000010366876172}
   - 114: {fileID: 114000010016340410}
-  - 114: {fileID: 114000014029408140}
+  - 114: {fileID: 114000013836251932}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013376773498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4341.66, y: -8363.676, z: -53.690002}
+  m_LocalPosition: {x: 4268.9, y: -8364.3, z: -46.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -464,7 +464,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStart: 0
   playerEnd: 0
---- !u!114 &114000014029408140
+--- !u!114 &114000013836251932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -723,7 +723,7 @@ MonoBehaviour:
   noteRange10: 0
   readTheNote: 0
   note1PopUp: 0
-  noteText1: Cool Beans!
+  noteText1: Lisa
   noteText2: 
   noteText3: 
   noteText4: 
@@ -733,7 +733,7 @@ MonoBehaviour:
   noteText8: 
   noteText9: 
   noteText10: 
-  pickupIndicator: Press Left Shift Key
+  pickupIndicator: Press Left Shift Key to pick up
   font: {fileID: 12800000, guid: 661c219d41713924ca9219dd9ba7a62b, type: 3}
 --- !u!114 &114000014205546986
 MonoBehaviour:

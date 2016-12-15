@@ -8,11 +8,11 @@ public class AdjustScript : MonoBehaviour
     {
         if(GUI.Button(new Rect(10, 100, 100, 30), "Health up"))
         {
-            GameControl.control.Health += 10;
+            //GameControl.control.Health += 10;
         }
         if (GUI.Button(new Rect(10, 140, 100, 30), "Health down"))
         {
-            GameControl.control.Health -= 10;
+            //GameControl.control.Health -= 10;
         }
         if (GUI.Button(new Rect(10, 180, 100, 30), "Save"))
         {
