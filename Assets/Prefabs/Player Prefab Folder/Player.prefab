@@ -848,15 +848,49 @@ MonoBehaviour:
   noteRange10: 0
   readTheNote: 0
   note1PopUp: 0
-  noteText1: Lisa
-  noteText2: 
-  noteText3: 
-  noteText4: 
-  noteText5: 
-  noteText6: 
-  noteText7: 
-  noteText8: 
-  noteText9: 
+  noteText1: 'Hello Frank and Lisa. We are sending you two into this system to locate
+    and eliminate the source of corruption that is causing massive amounts of system
+    failure. Despite our best efforts we have no idea what the source of corruption
+    is, but as our best technicians, we have confidence that you two can eliminate
+    the problem. Make sure to frequently communicate with us here at the lab and report
+    your findings. Keep in mind that this system is extremely unstable, so if at any
+    point you two feel that you need to be logged out, just contact us and we will
+    get you out immediately. Make sure to follow these instructions:  Controls:  Movement
+    = WASD, Toggle Flashlight on/off = F, Pickup Items = Left Mouse Click, Interaction
+    with notes/terminals = Left Shift Button   Good Luck  -Virtual Solutions Inc.  '
+  noteText2: "Help is not on the way. There is no escape. Abandon all hope\u2026.. "
+  noteText3: 'These terminals seem to have be the main functionality of this system.
+    If I can hack into the system, maybe I can actually figure a way out of here.
+    There is a recurring phrase  in these terminals though, it must mean something,
+    but what? '
+  noteText4: "I keep hearing what sounds like people screaming. I thought I was all
+    alone here, but I swear that i've been hearing faint screams. If there were other
+    people in this system, why would they be screaming? I don\u2019t know what to
+    think anymore, i've been trapped in this room for so long and I\u2019m starting
+    to lose my fucking mind. I don\u2019t know what the hell is going on out there,
+    but I need to get out of here now\u2026\u2026.. "
+  noteText5: "Why did I ever leave that room? I was safe in there. Those things couldn\u2019t
+    get in there. I should\u2019ve just sat in there and waited for help to come.
+    Fuck it, I\u2019m going to make a break for it!! "
+  noteText6: "What was that!! My partner and I just got attacked by a flickering creature!!
+    I don\u2019t know what happened to my partner, I saw him shake off the creature
+    then ran away. We are completely separated now. I need to find him before that
+    thing comes back. (Constantly press the left mouse button to shake off Flickr)."
+  noteText7: "I can\u2019t find a way out of here anywhere! There was one door that
+    I came across that was locked. Looked like I needed some sort of keycard to open
+    it. I\u2019m not sure what\u2019s in there, but I need to find that damn keycard\u2026..
+    \ "
+  noteText8: 'What is this place?! I have come across so many dead bodies running
+    from room to room, and I am afraid that I will be the next to go! I swear some
+    of the bodies had tools and other equipment on them, almost as if they were sent
+    here for the same job as me! What the hell is going on?!?!! '
+  noteText9: "I barely escaped that thing! Now I\u2019m stuck here in this room, I
+    need to get out of here before that thing can break in!! I can hear it at the
+    door still\u2026.  Okay, focus, the goal seems to be to move each one of these
+    objects over to the other side in the correct order. The magnet object seems to
+    react with the battery when left alone with it, and the battery seems to react
+    with the flash drive if they are left alone with each other. This puzzle seems
+    quite familiar, kind of like I have heard of a puzzle like this before\u2026 "
   noteText10: 
   pickupIndicator: Press Left Shift Key to pick up
   font: {fileID: 12800000, guid: 661c219d41713924ca9219dd9ba7a62b, type: 3}
