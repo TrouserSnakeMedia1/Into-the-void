@@ -52,34 +52,42 @@ public class NoteSystem : MonoBehaviour {
         if (other.tag == "Note#2")
         {
             noteRange2 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#3")
         {
             noteRange3 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#4")
         {
             noteRange4 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#5")
         {
             noteRange5 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#6")
         {
             noteRange6 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#7")
         {
             noteRange7 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#8")
         {
             noteRange8 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#9")
         {
             noteRange9 = true;
+            note1PopUp = false;
         }
         if (other.tag == "Note#10")
         {
