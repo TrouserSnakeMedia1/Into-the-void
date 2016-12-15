@@ -50,6 +50,7 @@ TagManager:
   - Note#8
   - Note#9
   - Note#10
+  - Sound Array
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011494789714}
-  - 114: {fileID: 114000012334303220}
   - 212: {fileID: 212000013254845186}
   - 114: {fileID: 114000012731257000}
   - 95: {fileID: 95000012463253304}
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95000010306084978}
---- !u!114 &114000012334303220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011160079706}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a2daa0bf44e0a4face032bd658b4c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Flight: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &114000012731257000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,11 +157,11 @@ MonoBehaviour:
   - {fileID: 0}
   distToTarget: 0
   patrolSpeed: 3
-  chargeSpeed: 3
-  attackDistance: 2
-  timeBetweenAttacks: 1.25
-  viewRadius: 5
-  viewAngle: 270
+  chargeSpeed: 6
+  attackDistance: 1
+  timeBetweenAttacks: 1
+  viewRadius: 7.5
+  viewAngle: 75
   player:
     serializedVersion: 2
     m_Bits: 2048

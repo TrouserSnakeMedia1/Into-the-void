@@ -84,8 +84,10 @@ public class slimescript : MonoBehaviour {
         
         yield return new WaitForSeconds(timeBetweenPlayerSpawn);
         PS.gameObject.transform.position = playerSpawn.transform.position;
+
         playerSprite.GetComponent<SpriteRenderer>().enabled = true;
         PS.dead = false;
+        slime.SetActive(false);
     }
     IEnumerator SlimeCutScene()
     {

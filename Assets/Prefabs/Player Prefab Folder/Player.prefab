@@ -93,7 +93,7 @@ GameObject:
   - 114: {fileID: 114000013168241998}
   m_Layer: 11
   m_Name: BackGround Sound Array
-  m_TagString: Untagged
+  m_TagString: Sound Array
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013376773498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4291.49, y: -8364.3, z: -92.26}
+  m_LocalPosition: {x: 4339.38, y: -8364.3, z: -54.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -518,7 +518,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -681,6 +681,7 @@ MonoBehaviour:
   cameraOffset: {x: 0, y: 10, z: 0}
   Slime: {fileID: 0}
   theSlime: {fileID: 0}
+  theSlimeSpawnPosition: {fileID: 0}
   anim: {fileID: 0}
   cameraSwitch: 0
   slimeSpawn: 0
@@ -871,6 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95000012452277936}
+  clip: {fileID: 8300000, guid: 6cd1746c9069d674586d43384ac809ac, type: 3}
   push: 0
 --- !u!212 &212000012176385074
 SpriteRenderer:

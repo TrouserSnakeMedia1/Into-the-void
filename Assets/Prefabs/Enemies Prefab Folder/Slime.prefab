@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e010d8b4752c1488239225f0ef0772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1000013376773498, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
+  target: {fileID: 1000013163464914}
   cameraOffset: {x: 0, y: 10, z: 0}
 --- !u!114 &114000012174738620
 MonoBehaviour:

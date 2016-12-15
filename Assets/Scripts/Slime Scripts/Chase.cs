@@ -12,10 +12,13 @@ public class Chase : MonoBehaviour {
     GameObject mainCamera;
     //GameObject theMainCamera;
     public Transform theSlime;
-  public Animator anim;
+    public Transform theSlimeSpawnPosition;
+    public Animator anim;
     GameObject findSlime;
     GameObject mainSlime;
     Animation theSlimeSpawn;
+    GameObject soundArray;
+    GameObject theSoundArray;
     //public Animation theSlimeAnimation;
     public bool cameraSwitch=false;
     public bool slimeSpawn = false;
@@ -24,8 +27,8 @@ public class Chase : MonoBehaviour {
     void Start () {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         //theMainCamera= GameObject.FindGameObjectWithTag("MainCamera");
-       
-       
+        soundArray = GameObject.FindGameObjectWithTag("Sound Array");
+        theSoundArray = GameObject.FindGameObjectWithTag("Sound Array");
         //anim = findSlime.GetComponent<Animator>();
         target = GameObject.Find("Player");
        
@@ -51,10 +54,15 @@ public class Chase : MonoBehaviour {
             
             mainCamera.GetComponent<CameraFollow>().enabled = false;
             mainCamera.GetComponent<AudioSource>().enabled = false;
+            theSoundArray.GetComponent<SoundArray>().enabled = false;
+            soundArray.GetComponent<AudioSource>().enabled = false;
             Slime.SetActive(true);
-             findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
+          
+            findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
           
             mainSlime = GameObject.FindGameObjectWithTag("SlimeEnemy");
+            
+            Slime.transform.position = theSlimeSpawnPosition.position;
             slimeSpawn = true;
             StartCoroutine(SlimeCutScene());
             //anim = findSlime.GetComponent<Animator>();
@@ -75,6 +83,8 @@ public class Chase : MonoBehaviour {
         if(other.tag == "ChaseEnd")
         {
             mainCamera.GetComponent<AudioSource>().enabled = true;
+            theSoundArray.GetComponent<SoundArray>().enabled = true;
+            soundArray.GetComponent<AudioSource>().enabled = true;
             Slime.SetActive(false);
         }
              
