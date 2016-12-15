@@ -17,7 +17,7 @@ public class KeyCardInteraction : MonoBehaviour {
 
                 MainTerminalDoor = GameObject.FindGameObjectWithTag("MainTerminalDoor");    //sets the game object to the main door object
                 MainTerminalDoor.SetActive(false);	//Main Terminal Door becomes invisible in the game view
-                MainTerminalDoor.GetComponent<AudioSource>().enabled = true;    //plays the set audio source when the key card is picked up
+             /*   MainTerminalDoor.GetComponent<AudioSource>().enabled = true;*/    //plays the set audio source when the key card is picked up
             }
 		}
 	}

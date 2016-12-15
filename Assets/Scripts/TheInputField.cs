@@ -29,6 +29,7 @@ public class TheInputField : MonoBehaviour {
 			win = false;
 	}
 	void OpenTheDoor(){
+        print("open si Door!");
 		door.SetActive (false);
 	}
 }

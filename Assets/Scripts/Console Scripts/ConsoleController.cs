@@ -21,7 +21,8 @@ public class ConsoleController
     public delegate void VisibilityChangedHandler(bool visible);
     public event VisibilityChangedHandler visibilityChanged;
     #endregion
-
+    public bool viewLogTwo;
+    public bool viewLogFour;
     /// <summary>
     /// Object to hold information about each command
     /// </summary>
@@ -168,7 +169,7 @@ public class ConsoleController
         bool viewLogOne = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal1;
         if (viewLogOne == true)
         {
-            appendLogLine("Works");
+            appendLogLine("Behold!");
         }
         else
         {
@@ -178,10 +179,12 @@ public class ConsoleController
     }
     void Log2(string[] args)
     {
-        bool viewLogTwo = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal2;
+       viewLogTwo = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal2;
         if (viewLogTwo == true)
         {
-            appendLogLine("Works");
+            appendLogLine("Door is open");
+            GameObject.FindGameObjectWithTag("DoorOne").SetActive(false);
+
         }
         else
         {
@@ -193,7 +196,7 @@ public class ConsoleController
         bool viewLogThree = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal3;
         if (viewLogThree == true)
         {
-            appendLogLine("Works");
+            appendLogLine("Code to unlock Door is 'Void' ");
         }
         else
         {
@@ -202,10 +205,11 @@ public class ConsoleController
     }
     void Log4(string[] args)
     {
-        bool viewLogFour = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal4;
+        viewLogFour = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal4;
         if (viewLogFour == true)
         {
-            appendLogLine("Works");
+            appendLogLine("Door is open");
+             GameObject.FindGameObjectWithTag("DoorTwo").SetActive(false);
         }
         else
         {
@@ -217,7 +221,7 @@ public class ConsoleController
         bool viewLogFive = GameObject.FindGameObjectWithTag("Player").GetComponent<terminalInteraction>().terminal5;
         if (viewLogFive == true)
         {
-            appendLogLine("Works");
+            appendLogLine("Real talk");
         }
         else
         {
@@ -231,10 +235,10 @@ public class ConsoleController
     }
     public void UnlockDoor(string[] args)
     {
-        Door = GameObject.FindGameObjectWithTag("Door");
-        Door.GetComponent<AudioSource>().enabled = true;
-        Door.SetActive(false);
-        appendLogLine("Door is open");
+        //Door = GameObject.FindGameObjectWithTag("Door");
+        //Door.GetComponent<AudioSource>().enabled = true;
+        //Door.SetActive(false);
+        //appendLogLine("Door is open");
     }
     void help(string[] args)
     {

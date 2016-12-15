@@ -3847,6 +3847,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
+      propertyPath: m_TagString
+      value: DoorTwo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
   m_IsPrefabParent: 0
@@ -5852,6 +5856,10 @@ Prefab:
     - target: {fileID: 4000011000191816, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
+      propertyPath: m_TagString
+      value: DoorOne
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
@@ -8033,7 +8041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eneterPassword: Enter le password
-  passwordNeededToPass: Matt
+  passwordNeededToPass: Void
   door: {fileID: 1282782641}
   win: 0
   rectX: 100
@@ -9131,7 +9139,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4269.2, y: -8364.3, z: -46.71}
+  m_LocalPosition: {x: 4268.7, y: -8364.3, z: -46.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:

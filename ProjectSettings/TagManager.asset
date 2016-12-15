@@ -51,6 +51,8 @@ TagManager:
   - Note#9
   - Note#10
   - Sound Array
+  - DoorOne
+  - DoorTwo
   layers:
   - Default
   - TransparentFX
