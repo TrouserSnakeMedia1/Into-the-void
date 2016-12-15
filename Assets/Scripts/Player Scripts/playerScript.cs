@@ -68,10 +68,10 @@ public class playerScript : MonoBehaviour {
             timer = 2f;
         }
 
+        timer -= Time.deltaTime;
 
 
-      
-      
+
 
 
 

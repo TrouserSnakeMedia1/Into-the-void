@@ -86,17 +86,12 @@ public class FeederEnemy : MonoBehaviour {
         feederDamageCheck = thePlayer.GetComponent<playerScript>().takeDamage;
         //if (state == FeederEnemy.State.ATTACK && feederDamageCheck == true)
         //{
-
-  if (findplayerHealth <= 0)
-        {
+        if (distance > maxDistance)
+        {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
+           
             feederDamagedPlayer = false;
         }
-        //{           // will the player's health is above or equal to 0, the coroutine will run
-        //    //print("damage");
-        //    //findplayerHealth -= feederDamage;// takes
-
-        //}
-        //}
+     
     }
     IEnumerator DelayForChase() { // there should be a small amount of time between the enemy spotting us and it chasing
         yield return new WaitForSeconds(delayInChase);
@@ -115,9 +110,9 @@ public class FeederEnemy : MonoBehaviour {
         }
         if(findplayerHealth <= 0)
         {
-            print("start chase again");
+        
             feederDamagedPlayer = false;
-            print("check");
+          
             
             //thePlayer.SetActive(false);
             playerSprite.GetComponent<SpriteRenderer>().enabled = false;
@@ -129,7 +124,7 @@ public class FeederEnemy : MonoBehaviour {
             attackAnimationCheck = true;
            
 
-            print("damage");
+        
 
             yield return new WaitForSeconds(delayBetweenAttack);
         }
@@ -177,7 +172,7 @@ public class FeederEnemy : MonoBehaviour {
         attackAnimationCheck = false;
         if (stunned.stunFeeder == false)
         {
-            print("chase");
+       
            
             /* RaycastHit hit;	*/    // gonna be using a raycast soon....
             nav.speed = chaseSpeed;// setting the speed
@@ -185,7 +180,7 @@ public class FeederEnemy : MonoBehaviour {
             //state = FeederEnemy.State.ATTACK;
             if (distance <= maxDistance)
             { // the feeder enemy will be raycasting and if frank is less than the attack distance away, the feeder enemy should go into attack mode
-                print("the attack");
+             
                
                 state = FeederEnemy.State.ATTACK; // the actual switching of the states
                
