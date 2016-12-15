@@ -40,12 +40,16 @@ public class FeederEnemy : MonoBehaviour {
     private GameObject thePlayer;
     public float feederDamage;
     public bool feederDamagedPlayer;
-
+    playerScript PS;
+    GameObject playerSprite;
     public bool runOnce;
-
+    public Transform playerSpawn;
+    public float timeBetweenPlayerSpawn;
     NavMeshAgent nav;
     // Use this for initialization
     void Start() {
+        playerSprite = GameObject.FindGameObjectWithTag("Player Model");
+        PS = GameObject.FindGameObjectWithTag("Player").GetComponent<playerScript>();
         //distance = Vector3.Distance(feederPosition.position, playerPosition.position);
         thePlayer = GameObject.FindGameObjectWithTag("Player");
         //findplayerHealth = thePlayer.GetComponent<playerScript>().health;
@@ -83,8 +87,10 @@ public class FeederEnemy : MonoBehaviour {
         //if (state == FeederEnemy.State.ATTACK && feederDamageCheck == true)
         //{
 
-
-        //    while (findplayerHealth >= 0)
+  if (findplayerHealth <= 0)
+        {
+            feederDamagedPlayer = false;
+        }
         //{           // will the player's health is above or equal to 0, the coroutine will run
         //    //print("damage");
         //    //findplayerHealth -= feederDamage;// takes
@@ -103,11 +109,21 @@ public class FeederEnemy : MonoBehaviour {
 
         if (distance > maxDistance ) {// determines if the actually distance between the player and pickupable is smaller or larger  or equal to the max distance and if smaller or equal the player may pick it up.
             feederDamagedPlayer = false;
-            print("start chase again");
+          
             state = FeederEnemy.State.CHASE;
 
         }
-        else if (stunned.stunFeeder == false && findplayerHealth > 0)
+        if(findplayerHealth <= 0)
+        {
+            print("start chase again");
+            feederDamagedPlayer = false;
+            print("check");
+            
+            //thePlayer.SetActive(false);
+            playerSprite.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(PlayerSpawn());
+        }
+        if (stunned.stunFeeder == false && findplayerHealth > 0 && distance < maxDistance)
         {
             feederDamagedPlayer = true;
             attackAnimationCheck = true;
@@ -130,7 +146,20 @@ public class FeederEnemy : MonoBehaviour {
         }                               // I will be putting in another raycast and if frank is within that range, then frank will take damage... The attack range should be slightly farther than the attack distance
         
     }
-	void Patrol(){      // the feeder enemy will only have the feeding animation playing during its "patrol"
+    IEnumerator PlayerSpawn()
+    {// ignore the current player spawn... It is very clunky and is not called at all. 
+       
+
+
+        yield return new WaitForSeconds(timeBetweenPlayerSpawn);
+        PS.gameObject.transform.position = playerSpawn.transform.position;
+       
+        playerSprite.GetComponent<SpriteRenderer>().enabled = true;
+        //thePlayer.SetActive(true);
+        PS.dead = false;
+        state = FeederEnemy.State.PATROL;
+    }
+    void Patrol(){      // the feeder enemy will only have the feeding animation playing during its "patrol"
         walkAnimationCheck = false;
         idleAnimationCheck = true;
         attackAnimationCheck = false;

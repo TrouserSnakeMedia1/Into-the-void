@@ -51,25 +51,28 @@ public class playerScript : MonoBehaviour {
         maxHealth = 5;
         takeDamage = false;
         dead = false;
-       // rigidPlayer = GetComponent<Rigidbody>();
-         ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
+       
+        // rigidPlayer = GetComponent<Rigidbody>();
+        ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
     }
     // Update is called once per frame
     void CheckFeeder()
     {
 
-        if (timer <= 0)
+        if (timer <= 0 && health > 0  )
         {
-          
-                takeDamage = true;
-                health -= feederDamage;
-                timer = 0.5f;
-            }
 
-        
+            takeDamage = true;
 
-        timer -= Time.deltaTime;
+            health -= feederDamage;
+            timer = 2f;
+        }
+
+
+
       
+      
+
 
 
     }
@@ -87,7 +90,7 @@ public class playerScript : MonoBehaviour {
     void Update()
     {
         hasFeederDamagedPlayer = Feeder.GetComponent<FeederEnemy>().feederDamagedPlayer;
-        if (hasFeederDamagedPlayer == true)
+        if (hasFeederDamagedPlayer == true && health >0)
         {
             //StartCoroutine(FeederDamage(nextAttack));
             CheckFeeder();

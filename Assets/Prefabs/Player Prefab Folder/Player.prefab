@@ -81,6 +81,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012785795074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011639813216}
+  - 82: {fileID: 82000013371494572}
+  - 114: {fileID: 114000013168241998}
+  m_Layer: 11
+  m_Name: BackGround Sound Array
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012846837994
 GameObject:
   m_ObjectHideFlags: 1
@@ -136,6 +153,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012425447088}
   m_RootOrder: 1
+--- !u!4 &4000011639813216
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012785795074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012425447088}
+  m_RootOrder: 2
 --- !u!4 &4000011902993098
 Transform:
   m_ObjectHideFlags: 1
@@ -158,12 +188,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013376773498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4268.9, y: -8364.3, z: -46.66}
+  m_LocalPosition: {x: 4291.49, y: -8364.3, z: -92.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011902993098}
   - {fileID: 4000010866221988}
+  - {fileID: 4000011639813216}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000013108988470
@@ -476,6 +507,80 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82000013371494572
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012785795074}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000012452277936
 Animator:
   serializedVersion: 3
@@ -644,13 +749,16 @@ MonoBehaviour:
   playerSpeed: 2
   runKey: 0
   speed: 3
-  timeBetween: 1.5
+  timeBetween: 3
   enemyDamage: 1
+  feederDamage: 1
   health: 0
   maxHealth: 0
   rotationSpeed: 450
   walkSpeed: 5
   timeUntilRespawn: 0
+  timer: 3
+  nextAttack: 0
   checkpoint: {fileID: 0}
   takeDamage: 0
   dead: 0
@@ -687,6 +795,22 @@ MonoBehaviour:
   maxDistance: 3
   smooth: 0
   playerPosition: {fileID: 4000012425447088}
+--- !u!114 &114000013168241998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012785795074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b80b547cc823d45a8fb212f62efa0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomSounds:
+  - {fileID: 8300000, guid: e2be23e307f91084c8509107247bed16, type: 3}
+  - {fileID: 8300000, guid: ec892882613095843a4ff4598c45be72, type: 3}
+  - {fileID: 8300000, guid: 867046ba66bbbda4c99a3caef66396ab, type: 3}
+  m_audioSource: {fileID: 82000013371494572}
 --- !u!114 &114000013712101612
 MonoBehaviour:
   m_ObjectHideFlags: 1

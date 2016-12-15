@@ -281,6 +281,8 @@ MonoBehaviour:
   feederDamage: 1
   feederDamagedPlayer: 0
   runOnce: 0
+  playerSpawn: {fileID: 0}
+  timeBetweenPlayerSpawn: 3
 --- !u!135 &135000011299468428
 SphereCollider:
   m_ObjectHideFlags: 1
