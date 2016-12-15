@@ -15,21 +15,25 @@ public class playerScript : MonoBehaviour {
     public float speed; // speed of the player gameobject
     public float timeBetween;// time between damage... you are passing this into the take damage ienumerator
     public float enemyDamage;// amount of damage enemy is giving
+    public float feederDamage;
     public float health;// player's total health at the start
     public float maxHealth; // will be used later when health is deved out more
     public float rotationSpeed = 450;
     public float walkSpeed = 5;
 
     public int timeUntilRespawn; // seconds until frank respawns 
-
+    public float timer = 3.0f;
+    public float nextAttack;
     public GameObject checkpoint; // checkpoint that frank respawns at
     private enemyscript ES;
+    GameObject Feeder;
     public bool takeDamage;
     public bool dead;
     bool justBeenHit=false;
     bool pushIt = true;
     bool theCheck = true;
     GameObject mainSlime;
+    bool hasFeederDamagedPlayer;
 
     
     private Quaternion targetRotation;
@@ -39,7 +43,8 @@ public class playerScript : MonoBehaviour {
     Vector3 input;
 
     // Use this for initialization
-    void Start (){       
+    void Start (){
+        Feeder = GameObject.FindGameObjectWithTag("FeederEnemy");
         controller = GetComponent<CharacterController>();
 		playerFacingRight = true;
         health = 5; // displays in the inspector but has to be changed in script.
@@ -50,6 +55,46 @@ public class playerScript : MonoBehaviour {
          ES = GameObject.FindGameObjectWithTag("EnemySprite").GetComponent<enemyscript>();// referencing the enemyscript which holds the latched bool.
     }
     // Update is called once per frame
+    void CheckFeeder()
+    {
+
+        if (timer <= 0)
+        {
+          
+                takeDamage = true;
+                health -= feederDamage;
+                timer = 0.5f;
+            }
+
+        
+
+        timer -= Time.deltaTime;
+      
+
+
+    }
+    //IEnumerator FeederDamage(float nextAttack)
+    //{
+    //    takeDamage = true;
+    //    while (health >= 0 )
+    //    {
+
+    //        health -= feederDamage;
+
+    //        yield return new WaitForSeconds(nextAttack);
+    //    }
+    //}
+    void Update()
+    {
+        hasFeederDamagedPlayer = Feeder.GetComponent<FeederEnemy>().feederDamagedPlayer;
+        if (hasFeederDamagedPlayer == true)
+        {
+            //StartCoroutine(FeederDamage(nextAttack));
+            CheckFeeder();
+        }
+      
+    }
+    
     void FixedUpdate()
     {
 
@@ -130,8 +175,10 @@ public class playerScript : MonoBehaviour {
     }
     IEnumerator TakeDamage(float timeBetweenDamage, float damage){
         takeDamage = true;
+      
         while (health >= 0 && ES.latched){           // will the player's health is above or equal to 0, the coroutine will run
             health -= damage;// takes damage and then waits X amount of seconds before taking damage again. 
+            
             yield return new WaitForSeconds(timeBetweenDamage);
         }
     }
