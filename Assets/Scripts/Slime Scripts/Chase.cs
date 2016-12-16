@@ -22,16 +22,25 @@ public class Chase : MonoBehaviour {
     //public Animation theSlimeAnimation;
     public bool cameraSwitch=false;
     public bool slimeSpawn = false;
-    
+    public  GameObject[] myObjects;  
+     private Vector3[] startPos;
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         //theMainCamera= GameObject.FindGameObjectWithTag("MainCamera");
         soundArray = GameObject.FindGameObjectWithTag("Sound Array");
         theSoundArray = GameObject.FindGameObjectWithTag("Sound Array");
         //anim = findSlime.GetComponent<Animator>();
         target = GameObject.Find("Player");
-       
+        startPos = new Vector3[myObjects.Length];
+        for (int i = 0; i <= myObjects.Length - 1; i++)
+        {
+
+            // fill position & rotation arrays for each object in objects array  
+            startPos[i] = myObjects[i].transform.position;
+        }
     }
 	
 	// Update is called once per frame
@@ -57,8 +66,18 @@ public class Chase : MonoBehaviour {
             theSoundArray.GetComponent<SoundArray>().enabled = false;
             soundArray.GetComponent<AudioSource>().enabled = false;
             Slime.SetActive(true);
-          
-            findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
+            for (int i = 0; i <= myObjects.Length - 1; i++)
+            {
+
+
+
+
+
+                // reset object related to this button
+                myObjects[i].transform.position = startPos[i];
+            }
+
+                    findSlime = GameObject.FindGameObjectWithTag("SlimeSprite");
           
             mainSlime = GameObject.FindGameObjectWithTag("SlimeEnemy");
             
