@@ -47,7 +47,7 @@ public class GameControl : MonoBehaviour {
             if (GUI.Button(new Rect(0, 0, buttonWidth, buttonHeight), "Main Menu")) //Makes a button for the main menu
             {
                 paused = false;
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
             //if (GUI.Button(new Rect(0, 60, buttonWidth, buttonHeight), "Save Game")) //Makes a button for saving
             //{
