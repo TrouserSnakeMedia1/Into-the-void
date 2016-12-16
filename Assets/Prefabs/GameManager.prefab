@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012476278148}
   - 114: {fileID: 114000012678434828}
+  - 114: {fileID: 114000013861437212}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -62,4 +63,24 @@ MonoBehaviour:
   flickrRespawnTime: 2
   flickrTimeAlive: 25
   timeBetweenPlayerSpawn: 3
-  player: {fileID: 1000013376773498, guid: 403a4769ce86e47b6aea3ce7f9f28e2d, type: 2}
+--- !u!114 &114000013861437212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010997476796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6dbff96f2c8bb4f9275201544017a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bankReactionTime: 0.5
+  door: {fileID: 0}
+  fox: {fileID: 0}
+  chicken: {fileID: 0}
+  grain: {fileID: 0}
+  player: {fileID: 0}
+  playerStartPos: {fileID: 0}
+  chickenStartPos: {fileID: 0}
+  foxStartPos: {fileID: 0}
+  grainStartPos: {fileID: 0}

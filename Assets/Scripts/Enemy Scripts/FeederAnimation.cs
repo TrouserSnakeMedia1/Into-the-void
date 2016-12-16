@@ -23,9 +23,9 @@ public class FeederAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        feederWalk = theFeeder.GetComponent<FeederEnemy>().walkAnimationCheck;
-        feederIdle = theFeeder.GetComponent<FeederEnemy>().idleAnimationCheck;
-        feederAttack = theFeeder.GetComponent<FeederEnemy>().attackAnimationCheck;
+        //feederWalk = theFeeder.GetComponent<FeederEnemy>().walkAnimationCheck;
+        //feederIdle = theFeeder.GetComponent<FeederEnemy>().idleAnimationCheck;
+        //feederAttack = theFeeder.GetComponent<FeederEnemy>().attackAnimationCheck;
 
         if (feederWalk == true) 
         {

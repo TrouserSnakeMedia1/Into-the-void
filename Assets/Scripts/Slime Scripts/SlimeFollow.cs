@@ -15,7 +15,7 @@ public class SlimeFollow : MonoBehaviour {
     void Start () {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         thePlayer = GameObject.FindGameObjectWithTag("Player");
-        pushIt = thePlayer.GetComponent<Chase>().slimeSpawn; // sets the bool pushIt to equal the bool push thats in this script
+       // pushIt = thePlayer.GetComponent<Chase>().slimeSpawn; // sets the bool pushIt to equal the bool push thats in this script
     }
 	
 	// Update is called once per frame

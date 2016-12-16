@@ -21,10 +21,8 @@ GameObject:
   - 4: {fileID: 4000010715729648}
   - 212: {fileID: 212000012040208712}
   - 114: {fileID: 114000010638967856}
-  - 54: {fileID: 54000010252078576}
   - 65: {fileID: 65000012724446914}
   - 95: {fileID: 95000012764597966}
-  - 114: {fileID: 114000011924562148}
   m_Layer: 0
   m_Name: USB
   m_TagString: Fox
@@ -38,28 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013268706560}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4476.898, y: -8363.838, z: -46.72}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.99, y: -9.09, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &54000010252078576
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013268706560}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 2
 --- !u!65 &65000012724446914
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -103,19 +86,6 @@ MonoBehaviour:
   anim: {fileID: 95000012764597966}
   m_character: {fileID: 0}
   s_character: {fileID: 0}
---- !u!114 &114000011924562148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013268706560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be2022b9b7511a4f81d1fb6b1d6bf82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foxStart: 0
-  foxEnd: 0
 --- !u!212 &212000012040208712
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +114,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300004, guid: 29df7ba627c7a4566be52f77617a4a08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

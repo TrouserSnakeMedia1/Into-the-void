@@ -22,9 +22,7 @@ GameObject:
   - 212: {fileID: 212000013647822758}
   - 114: {fileID: 114000013443799100}
   - 95: {fileID: 95000011940496974}
-  - 54: {fileID: 54000014217892902}
   - 65: {fileID: 65000010376034458}
-  - 114: {fileID: 114000014150507144}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Chicken
@@ -38,28 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010605196378}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4475.643, y: -8363.841, z: -46.72}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.98, y: -9.64, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &54000014217892902
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010605196378}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 2
 --- !u!65 &65000010376034458
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -103,19 +86,6 @@ MonoBehaviour:
   anim: {fileID: 95000011940496974}
   m_character: {fileID: 0}
   s_character: {fileID: 0}
---- !u!114 &114000014150507144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010605196378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877fe250c31483d488b2735db846adf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chickenStart: 0
-  chickenEnd: 0
 --- !u!212 &212000013647822758
 SpriteRenderer:
   m_ObjectHideFlags: 1

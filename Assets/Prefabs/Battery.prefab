@@ -22,9 +22,7 @@ GameObject:
   - 212: {fileID: 212000010872363174}
   - 114: {fileID: 114000010388339870}
   - 95: {fileID: 95000013675483642}
-  - 54: {fileID: 54000013865594498}
   - 65: {fileID: 65000010302665958}
-  - 114: {fileID: 114000011804572180}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Grain
@@ -38,28 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010809134586}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4474.595, y: -8363.869, z: -46.72}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.974, y: -10.19, z: -0.13}
+  m_LocalScale: {x: 1.0000007, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &54000013865594498
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010809134586}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 2
 --- !u!65 &65000010302665958
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -103,19 +86,6 @@ MonoBehaviour:
   anim: {fileID: 95000013675483642}
   m_character: {fileID: 0}
   s_character: {fileID: 0}
---- !u!114 &114000011804572180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010809134586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17e42a35da89e041af7a06a511e1c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grainStart: 0
-  grainEnd: 0
 --- !u!212 &212000010872363174
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +114,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300002, guid: 263e00eaeec424fbda12eb3d9b2580f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

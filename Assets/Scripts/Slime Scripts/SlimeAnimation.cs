@@ -20,14 +20,14 @@ public class SlimeAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        pushIt = playerModel.GetComponent<Chase>().slimeSpawn;
+       // pushIt = playerModel.GetComponent<Chase>().slimeSpawn;
         if(pushIt==true)
         {
             anim.SetInteger("SlimeSwitch", 3);
         }
         else
         {
-            anim.SetInteger("SlimeSwitch", 2);
+            //anim.SetInteger("SlimeSwitch", 2);
         }
     }
 }
