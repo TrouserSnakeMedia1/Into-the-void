@@ -8,7 +8,9 @@ public class TheInputField : MonoBehaviour {
 	// the password that is needed to pass the puzzle. it can be alphanumeric values. 
 	[SerializeField]
 	GameObject door;
-	public bool win = false;		
+    [SerializeField]
+    GameObject doorTwo;
+    public bool win = false;		
 	[SerializeField]
 	public int rectX,rectY,labelWidth,labelHeight,textFieldX,textFieldY,textWidth,textHeight,characterLimit;	// the label's rect x
 	// the label's rect y
@@ -31,5 +33,6 @@ public class TheInputField : MonoBehaviour {
 	void OpenTheDoor(){
         print("open si Door!");
 		door.SetActive (false);
-	}
+        doorTwo.SetActive(false);
+    }
 }

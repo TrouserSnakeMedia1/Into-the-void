@@ -22,8 +22,11 @@ public class Chase : MonoBehaviour {
     //public Animation theSlimeAnimation;
     public bool cameraSwitch=false;
     public bool slimeSpawn = false;
-    public  GameObject[] myObjects;  
-     private Vector3[] startPos;
+    [SerializeField]
+    GameObject[] myObjects;
+    [SerializeField]
+    GameObject door;
+    private Vector3[] startPos;
 
     // Use this for initialization
     void Start()
@@ -105,6 +108,7 @@ public class Chase : MonoBehaviour {
             theSoundArray.GetComponent<SoundArray>().enabled = true;
             soundArray.GetComponent<AudioSource>().enabled = true;
             Slime.SetActive(false);
+            door.SetActive(false);
         }
              
     }

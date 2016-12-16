@@ -11,7 +11,7 @@ public class MainTerminalScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
             inputField.SetActive(false);
 	}
     void OnTriggerEnter(Collider other)

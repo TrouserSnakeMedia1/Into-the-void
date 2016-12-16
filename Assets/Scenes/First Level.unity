@@ -3894,6 +3894,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011000191816, guid: b8d65360c255d364a95ecb69cd7d3e7e,
     type: 2}
   m_PrefabInternal: {fileID: 1518250665}
+--- !u!1 &450816773 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e,
+    type: 2}
+  m_PrefabInternal: {fileID: 288304116}
 --- !u!4 &474558109 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014178997638, guid: d7d618d3ae4a50a4b954741208c4f2ba,
@@ -7592,6 +7597,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65000011101287916, guid: 194ad5917b1b07e478eb89f001b2439b,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -0.13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 194ad5917b1b07e478eb89f001b2439b, type: 2}
   m_IsPrefabParent: 0
@@ -7719,7 +7729,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8083,6 +8093,7 @@ MonoBehaviour:
   eneterPassword: Enter le password
   passwordNeededToPass: Void
   door: {fileID: 1282782641}
+  doorTwo: {fileID: 1261115861}
   win: 0
   rectX: 100
   rectY: 68
@@ -8736,6 +8747,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012913962922, guid: 1082b29052788430bb4fc6dfb8b69a6a,
     type: 2}
   m_PrefabInternal: {fileID: 1624950587}
+--- !u!1 &1261115861 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1834104237}
 --- !u!1001 &1274755405
 Prefab:
   m_ObjectHideFlags: 0
@@ -9189,7 +9205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396360124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4338.9, y: -8364.3, z: -53.12}
+  m_LocalPosition: {x: 4266.4, y: -8364.3, z: -46.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -9680,6 +9696,7 @@ GameObject:
   - 114: {fileID: 1396360132}
   - 114: {fileID: 1396360133}
   - 114: {fileID: 1396360134}
+  - 114: {fileID: 1396360135}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -9918,6 +9935,7 @@ MonoBehaviour:
   - {fileID: 152543905}
   - {fileID: 1966059422}
   - {fileID: 293470864}
+  door: {fileID: 450816773}
 --- !u!114 &1396360134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9983,6 +10001,19 @@ MonoBehaviour:
   noteText10: 
   pickupIndicator: Press Left Shift Key to pick up
   font: {fileID: 12800000, guid: 661c219d41713924ca9219dd9ba7a62b, type: 3}
+--- !u!114 &1396360135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000012865263266, guid: 403a4769ce86e47b6aea3ce7f9f28e2d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396360124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ba5d4f7ca78f64f88b49c20176a6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 450816773}
 --- !u!1001 &1409297940
 Prefab:
   m_ObjectHideFlags: 0
@@ -13860,6 +13891,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013177064850, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
+      propertyPath: m_TagString
+      value: DoorThree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d65360c255d364a95ecb69cd7d3e7e, type: 2}
   m_IsPrefabParent: 0
@@ -15528,6 +15563,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7d618d3ae4a50a4b954741208c4f2ba, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2020843817
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 638270340}
+    m_Modifications:
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -11.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013364996734, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fc60e562a04a7a64a9d266a859ee2ff9, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2033551716 stripped
 Transform:

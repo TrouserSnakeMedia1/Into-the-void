@@ -53,6 +53,8 @@ TagManager:
   - Sound Array
   - DoorOne
   - DoorTwo
+  - DoorThree
+  - CloseChaseHall
   layers:
   - Default
   - TransparentFX
